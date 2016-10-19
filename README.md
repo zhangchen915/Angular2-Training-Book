@@ -1,16 +1,13 @@
 # **Rangle's Angular 2 Training Book**
 
-
-
 ![](/assets/book-cover.png)
 
-Over the last three and a half years, AngularJS has become the leading open source JavaScript application framework for hundreds of thousands of programmers around the world. The "1.x" version of AngularJS has been widely used and became extremely popular for complex applications. The new "Angular 2" has also announced its [final release version](http://angularjs.blogspot.ca/2016/09/angular2-final.html).
+在过去三年半的时间里，AngularJS已经成为世界上数十万程序员的领先开源JavaScript应用程序框架。 AngularJS的“1.x”版本已被广泛使用，并且变得非常受欢迎的复杂应用程序。 新的“Angular 2”也宣布了其最终版本。
 
 ## **About Rangle’s Angular 2 Training Book**
 
-We developed this book to be used as course material for [Rangle's Angular 2 training](http://go.rangle.io/angular-2-training), but many people have found it to be useful for learning Angular 2 on their own. This book will cover the most important Angular 2 topics, from getting started with the Angular 2 toolchain to writing Angular 2 applications in a scalable and maintainable manner.
+我们开发这本书被用作[Rangle 的Angular 2训练](http://go.rangle.io/angular-2-training)的课程材料，但是很多人发现它对自己学习Angular 2是有用的。 本书将涵盖最重要的Angular 2主题，从使用Angular 2工具链入门到能够以可扩展和可维护的方式编写Angular 2应用程序。
 
-If you find this material useful, you should also consider registering for one of Rangle’s [training courses](http://go.rangle.io/angular-2-training), which facilitate hands-on learning and are a great fit for companies that need to transition their technology to Angular 2, or individuals looking to upgrade their skills.
+如果您认为这种材料有用，您还应该考虑注册一个[Rangle的培训课程](http://go.rangle.io/angular-2-training)，这有助于实践学习，非常适合需要将他们的技术转换到Angular 2的公司，或者想要提高技能水平的个人。
 
-Rangle.io also has an [Angular 1.x](http://ngcourse-1.rangle.io/) book which is geared towards writing Angular 1.x applications in an Angular 2 style. We hope you enjoy this book. We welcome your feedback in the [Discussion Area](https://www.gitbook.com/book/rangle-io/ngcourse2/discussions).
-
+Rangle.io还有一本[Angular 1.x](http://ngcourse-1.rangle.io/)的书，适合于以Angular 2风格编写Angular 1.x应用程序。 我们希望你喜欢这本书。 我们欢迎您在讨论区的反馈。
