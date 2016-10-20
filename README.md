@@ -1,5 +1,7 @@
 # **Rangle's Angular 2 Training Book**
 
+**正在翻译中**
+
 ![](/assets/book-cover.png)
 
 在过去三年半的时间里，AngularJS已经成为世界上数十万程序员的领先开源JavaScript应用程序框架。 AngularJS的“1.x”版本已被广泛使用，并且变得非常受欢迎的复杂应用程序。 新的“Angular 2”也宣布了其最终版本。
