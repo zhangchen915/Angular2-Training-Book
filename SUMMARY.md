@@ -15,4 +15,5 @@
     * [TypeScript](typeScript.md)
         * [TypeScript入门](typeScript_start.md)
         * [使用 tsc](working_with_tsc.md)
-    
+        * [类型](typings.md)
+
