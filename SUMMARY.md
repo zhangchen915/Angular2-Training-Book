@@ -31,5 +31,9 @@
             * [响应组件事件](Components/responding_to_component_events.md)
             * [使用双向数据绑定](Components/two_way_data_binding.md)
             * [从模板访问子组件](Components/access_child_components_from_template.md)
+        * [投影](Components/projection.md)
+        * [使用组件构建应用程序](Components/structuring_applications_with_components.md)
+        * [使用其他组件](Components/using_other_components.md)
+* [指令](Directives/directives.md)
            
 
