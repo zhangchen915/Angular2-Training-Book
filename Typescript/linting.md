@@ -4,7 +4,7 @@
 对于TypeScript有一个名为tslint的包（npm install --save-dev tslint），可以插入许多编辑器。 tslint也可以配置一个tslint.json文件。
 Webpack可以在尝试运行tsc之前运行tslint。 这是通过安装tslint-loader（npm install --save-dev tslint-loader）来实现的，它插入到webpack中，如下所示：
 
-```
+```js
 // ...
 module: {
   preLoaders: [

@@ -2,7 +2,7 @@
 
 关于TypeScript类型的一个常见误解是代码需要在每个可能的机会上显式地描述类型。幸运的是这不是这样。TypeScript有一个丰富的类型推理系统，将为程序员“填空”。考虑以下：
 type-in​​ference-found-error.ts
-```
+```ts
 let numbers = [2, 3, 5, 7, 11];
 numbers = ['this will generate a type error'];
 ```
@@ -16,7 +16,7 @@ Type 'string' is not assignable to type 'number'.
 类型推理也可以通过上下文工作，这是回调方便。考虑以下：
 
 type-inference-finds-error-2.ts
-```
+```ts
 interface FakeEvent {
   type: string;
 }

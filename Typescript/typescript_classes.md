@@ -1,6 +1,7 @@
 #TypeScript类
 
-打字稿也把class上课当作自己的类型：
+TypeScript还将类视为自己的类型：
+```ts
 class Foo { foo: number; }
 class Bar { bar: string; }
 
@@ -10,9 +11,12 @@ class Baz {
 
 let baz = new Baz(new Foo(), new Bar()); // valid
 baz = new Baz(new Bar(), new Foo());     // tsc errors
-像函数的参数，classES有时会具有可选的成员。同样的 ?:语法可以在使用class的定义：
+```
+像函数参数一样，类有时具有可选成员。 同样的`?:`语法可以用于类定义：
+```ts
 class Person {
   name: string;
   nickName?: string;
 }
-在上面的例子中，一个实例Person是保证有一个name，并且可能任选地具有一个nickName
+```
+在上面的示例中，Person的实例保证有一个名称，并且可以可选地具有nickName。

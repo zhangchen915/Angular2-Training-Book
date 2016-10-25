@@ -22,7 +22,7 @@ TypeScript添加
 
 * enum 枚举类 { Red, Blue, Green }
 * any  使用任何类型
-* void 没有
+* void 
 原始类型示例：
 ```
 let isDone: boolean = false;
