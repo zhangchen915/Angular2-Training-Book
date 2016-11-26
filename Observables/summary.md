@@ -1,0 +1,8 @@
+#总结
+Observables为组合和转换异步流提供了一组灵活的API。 它们提供了许多功能来创建来自许多其他类型的流，以及操纵和变换它们。 我们已经了解了Angular 2如何使用Observables从许多其他类型创建流来读取用户输入，执行异步数据提取和设置自定义的发射/订阅例程。
+
+* rxjs 4 to 5 migration
+* rxjs Observable API
+* Which operator do I use?
+* rxmarbles
+* RxJS Operators by Example
