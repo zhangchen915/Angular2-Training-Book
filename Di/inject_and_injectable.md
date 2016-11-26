@@ -37,3 +37,19 @@ export class App {
 ```
 
 #@Injectable()
+@Injectable（）让Angular 2知道一个类可以用于依赖注入器。 如果类上有其他Angular 2装饰器或没有任何依赖，@Injectable（）不是严格要求。
+重要的是任何要注入Angular 2的类都被装饰。 然而，最佳实践是使用@Injectable（）来装饰注入，因为它对读者更有意义。
+这里有一个用@Injectable标记的汉堡包示例：
+```ts
+import { Injectable } from '@angular/core';
+import { Bun } from './bun';
+import { Patty } from './patty';
+import { Toppings } from './toppings';
+
+@Injectable()
+export class Hamburger {
+  constructor(public bun: Bun, public patty: Patty, public toppings: Toppings) {
+  }
+}
+```
+在上面的例子中，Angular 2的注入器通过使用类型信息确定要注入到汉堡构造函数中。 这是可能的，因为这些特定的依赖关系是类型化的，并且不是原始类型。 在某些情况下，Angular 2的DI需要更多的信息，而不仅仅是类型。
