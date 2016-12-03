@@ -1,6 +1,6 @@
 #变化检测
 
-![](/assets/change-detection.png)
+![](../assets/change-detection.jpg)
 
 变化检测是允许Angular保持我们的视图与我们的模型同步的过程。
 变化检测在旧版本的Angular和新版本之间发生了很大的变化。在Angular 1中，框架保留了一长串观察者（每个属性绑定到我们的模板），需要检查每次一个摘要周期开始。这被称为脏检查，它是唯一可用的变化检测机制。

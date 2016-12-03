@@ -5,4 +5,4 @@
 在Angular 2中，改变被保证单向传播。更改检测器将遍历每个节点一次，始终从根开始。这意味着父组件始终在其子组件之前检查。
 
 Tree traversing in Angular 1 vs Angular 2
-![](/assets/angular1-vs-angular2.png)
+![](../assets/angular1-vs-angular2.png)

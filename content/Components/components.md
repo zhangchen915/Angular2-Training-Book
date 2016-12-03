@@ -1,5 +1,5 @@
 #Angular2中的组件
-![](/assets/components.jpg)
+![](../assets/components.jpg)
 
 任何Angular 2应用程序的核心理念是组件。实际上，整个应用程序可以被建模为这些组件的树。
 这是Angular 2团队定义组件的方式：
