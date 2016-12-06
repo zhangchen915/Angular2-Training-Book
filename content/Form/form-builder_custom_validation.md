@@ -2,11 +2,11 @@
 
 As useful as the built-in validators are, it is very useful to be able to include your own. Angular 2 allows you to do just that, with minimal effort.
 
-Let's assume we are using the same Login Form, but now we also want to test that our password has an exclamation mark somewhere in it.
+让我们假设使用相同的登录表单，但现在我们还要测试我们的密码在其中某处有感叹号。
 
 *app/login-form.component.ts*
 
-```
+```typescript
 function hasExclamationMark(input: FormControl) {
   const hasExclamation = input.value.indexOf('!') >= 0;
   return hasExclamation ? null : { needsExclamation: true };
@@ -20,43 +20,41 @@ this.password = new FormControl('', [
 ]);
 ```
 
-A simple function takes the `FormControl` instance and returns null if everything is fine. If the test fails, it returns an object with an arbitrarily named property. The property name is what will be used for the `.hasError()` test.
+一个简单的函数接受`FormControl`实例，并返回null如果一切都很好。 如果测试失败，它返回一个具有任意命名属性的对象。 属性名称将用于`.hasError()`测试。
 
 *app/login-form.component.ts*
 
-```
+```html
 <!-- ... -->
 <div [hidden]="!password.hasError('needsExclamation')">
   Your password must have an exclamation mark!
 </div>
 <!-- ... -->
-
 ```
 
 [View Example](https://plnkr.co/edit/UqQtxj?p=preview)
 
-### Predefined Parameters
+### 预定义参数
 
-Having a custom validator to check for exclamation marks might be helpful, but what if you need to check for some other form of punctuation? It might be overkill to write nearly the same thing over and over again.
+有一个自定义验证器来检查感叹号可能是有帮助的，但如果你需要检查一些其他形式的标点符号怎么办？ 你可能需要一遍又一遍地写做相同的事情。
 
-Consider the earlier example `Validators.minLength(5)`. How did they get away with allowing an argument to control the length, if a validator is just a function? Simple, really. It's not a trick of Angular, or TypeScript - it's simple JavaScript closures.
+考虑前面的例子`Validators.minLength(5)`。 如果验证器只是一个函数，它们如何允许一个参数来控制长度？ 简单，真的。 这不是Angular或TypeScript的一个戏法，它是简单的JavaScript闭包。
 
-```
+```typescript
 function minLength(minimum) {
   return function(input) {
     return input.value.length >= minimum ? null : { minLength: true };
   };
 }
-
 ```
 
-Assume you have a function which takes a "minimum" parameter and returns another function. The function defined and returned from the inside becomes the validator. The closure reference allows you to remember the value of the minimum when the validator is eventually called.
+假设你有一个函数，它接受一个“最小”参数并返回另一个函数。 从内部定义和返回的函数成为验证器。 闭包引用允许您记住最终调用验证器时的最小值。
 
-Let's apply that thinking back to a `PunctuationValidator`.
+让我们将这种思路应用到`PunctuationValidator`。
 
 *app/login-form.component.ts*
 
-```
+```typescript
 function hasPunctuation(punctuation: string, errorType: string) {
   return function(input: FormControl) {
     return input.value.indexOf(punctuation) >= 0 ?
@@ -71,27 +69,25 @@ this.password = new FormControl('', [
   Validators.required,
   hasPunctuation('&', 'ampersandRequired')
 ]);
-
 ```
 
 *app/login-form.component.html*
 
-```
+```html
 <!-- ... -->
 <div [hidden]="!password.hasError('ampersandRequired')">
   You must have an &amp; in your password.
 </div>
 <!-- ... -->
-
 ```
 
 [View Example](https://plnkr.co/edit/m5BpOX?p=preview)
 
-### Validating Inputs Using Other Inputs
+### 使用其他输入验证输入
 
-Keep in mind what was mentioned earlier: inputs have access to their parent context via `.root`. Therefore, complex validation can happen by drilling through the form, via root.
+记住前面提到的：输入可以通过`.root`访问他们的父上下文。 因此，复杂的验证可以通过`.root`在表单上获取。
 
-```
+```typescript
 function duplicatePassword(input: FormControl) {
   if (!input.root || !input.root.controls) {
     return null;
@@ -106,7 +102,6 @@ this.duplicatePassword = new FormControl('', [
   Validators.required,
   duplicatePassword
 ]);
-
 ```
 
 [View Example](https://plnkr.co/edit/OVL1Vl?p=preview)
