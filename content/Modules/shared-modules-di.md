@@ -1,8 +1,8 @@
-# Shared Modules and Dependency Injection
+# 共享模块和依赖注入
 
-Now that we have proven that lazy loaded modules create their own branch on the Dependency Injection tree, we need to learn how to deal with services that are imported by means of a shared module in both an eager and lazy loaded module.
+现在我们已经证明延迟加载模块在依赖注入树上创建自己的分支，我们需要学习如何处理通过在 `eager` 和`lazy` 加载模块中的共享模块导入的服务。
 
-Let's create a new module called `SharedModule` and define the `CounterService` there.
+让我们创建一个名为SharedModule的新模块，并在那里定义CounterService。
 
 *app/shared/shared.module.ts*
 
@@ -84,8 +84,8 @@ export class EagerComponent {
 
 [View Example](https://plnkr.co/edit/7evZh7XMUxf9HPPKdqYa?p=preview)
 
-If you play with the live example, you will notice that the `counter` seems to behave independently in `EagerComponent` and `LazyComponent`, we can increase the value of one counter without altering the other one. In other words, we have ended up with two instances of the `CounterService`, one that lives in the root of the DI tree of the `AppModule` and another that lives in a lower branch of the DI tree accessible by the `LazyModule`.
+如果看过了上面的在线示例，你会注意到计数器似乎在`EagerComponent`和`LazyComponent`中独立行为，我们可以增加一个计数器的值，而不改变另一个。 换句话说，我们最终得到了两个`CounterService`实例，一个存在于`AppModule`的DI树根目录中，另一个存在于`LazyModule`可访问的DI树的较低分支中。
 
-This is not neccessarily wrong, you may find situations where you could need different instances of the same service, but I bet most of the time that's not what you want. Think for example of an authentication service, you need to have the same instance with the same information available everywhere disregarding if we are using the service in an eagerly or lazy loaded module.
+这不是必要的错误，你可能会发现，你可能需要不同的实例相同的服务，但我打赌大部分时间，这不是你想要的。 考虑认证服务的例子，你需要具有相同的信息的相同实例在任何地方都可以忽略，如果我们在一个急切或延迟加载模块中使用服务。
 
-In the next section we are going to learn how to have only one instance of a shared service.
+在下一节中，我们将学习如何只有一个共享服务实例。

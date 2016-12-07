@@ -1,8 +1,8 @@
-# Sharing the Same Dependency Injection Tree
+# 共享相同的依赖注入树
 
-So far our problem is that we are creating two instances of the same services in different levels of the DI tree. The instance created in the lower branch of the tree is shadowing the one defined at the root level. The solution? To avoid creating a second instance in a lower level of the DI tree for the lazy loaded module and only use the service instance registered at the root of the tree.
+到目前为止，我们的问题是我们在DI树的不同级别创建相同服务的两个实例。 在树的较低分支中创建的实例会遮蔽在根级别定义的实例。 解决方案？ 避免在延迟加载模块的DI树的较低级别中创建第二个实例，并且仅使用在树根处注册的服务实例。
 
-To accomplish that, we need to modify the definition of the `SharedModule` and instead of defining our service in the `providers` property, we need to create a static method called `forRoot` that exports the service along with the module itself.
+为了实现这一点，我们需要修改`SharedModule`的定义，而不是在`providers`属性中定义我们的服务，我们需要创建一个称为`forRoot`的静态方法，该方法将与模块本身一起导出服务。
 
 *app/shared/shared.module.ts*
 
@@ -19,10 +19,9 @@ export class SharedModule {
     };
   }
 }
-
 ```
 
-With this setup, we can import this module in our root module `AppModule` calling the `forRoot` method to register the module and the service.
+通过这个设置，我们可以在我们的根模块`AppModule`中导入这个模块，调用`forRoot`方法来注册模块和服务。
 
 *app/app.module.ts*
 
@@ -38,10 +37,9 @@ import { SharedModule } from './shared/shared.module';
   ...
 })
 export class AppModule {}
-
 ```
 
-In contrast, when import the same module in our `LazyModule` we will not call the `forRoot` method because we don't want to register the service again in a different level of the DI tree, so the declaration of the `LazyModule` doesn't change.
+相反，当在`LazyModule`中导入相同的模块时，我们不会调用forRoot方法，因为我们不想在DI树的不同级别注册该服务，因此`LazyModule`的声明不会改变。
 
 *app/lazy/lazy.module.ts*
 
@@ -62,4 +60,4 @@ export class LazyModule {}
 
 [View Example](https://plnkr.co/edit/xz5wZvqQvzdD0uOZYXg4?p=preview)
 
-This time, whenever we change the value of the `counter` property, this value is shared between the `EagerComponent` and the `LazyComponent` proving that we are using the same instance of the `CounterService`.
+这次，只要我们更改计数器属性的值，该值就会在`EagerComponent`和`LazyComponent`之间共享，证明我们正在使用`CounterService`的同一个实例。

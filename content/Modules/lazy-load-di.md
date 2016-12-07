@@ -1,8 +1,8 @@
-# Lazy Loading and the Dependency Injection Tree
+# 延迟加载和依赖注入树
 
-Lazy loaded modules create their own branch on the Dependency Injection (DI) tree. This means that it's possible to have services that belong to a lazy loaded module, that are not accessible by the root module or any other eagerly loaded module of our application.
+延迟加载模块在依赖注入（DI）树上创建自己的分支。 这意味着可能拥有属于延迟加载模块的服务，这些服务不能由根模块或我们的应用程序的任何其他热加载的模块访问。
 
-To show this behaviour, let's continue with the example of the previous section and add a `CounterService` to our `LazyModule`.
+为了显示这种行为，让我们继续上一节的示例，并向我们的`LazyModule`添加一个`CounterService。`
 
 *app/lazy/lazy.module.ts*
 
@@ -15,10 +15,9 @@ import { CounterService } from './counter.service';
   providers: [CounterService]
 })
 export class LazyModule {}
-
 ```
 
-Here we added the `CounterService` to the `providers` array. Our `CounterService` is a simple class that holds a reference to a `counter` property.
+这里我们将`CounterService`添加到`providers`数组中。 我们的`CounterService`是一个简单的类，它保存对计数器属性的引用。
 
 *app/lazy/counter.service.ts*
 
@@ -29,10 +28,9 @@ import { Injectable } from '@angular/core';
 export class CounterService {
   counter = 0;
 }
-
 ```
 
-We can modify the `LazyComponent` to use this service with a button to increment the `counter` property.
+我们可以修改`LazyComponent`来使用这个服务，使用一个按钮来增加计数器属性。
 
 *app/lazy/lazy.component.ts*
 
@@ -56,14 +54,13 @@ export class LazyComponent {
     this.counterService.counter += 1;
   }
 }
-
 ```
 
 [View Example](https://plnkr.co/edit/RUp3QhHWmxBIQQAAw2im?p=preview)
 
-The service is working. If we increment the counter and then navigate back and forth between the `eager`and the `lazy` routes, the `counter` value will persist in the lazy loaded module.
+服务可以工作了。 如果我们递增计数器，然后在eager和惰性路由之间来回导航，计数器值将在延迟加载模块中持续。
 
-But the question is, how can we verify that the service is isolated and cannot be used in a component that belongs to a different module? Let's try to use the same service in the `EagerComponent`.
+但问题是，我们如何验证服务是隔离的，不能在属于不同模块的组件中使用？ 让我们尝试在`EagerComponent`中使用相同的服务。
 
 *app/eager.component.ts*
 
@@ -85,14 +82,12 @@ export class EagerComponent {
     this.counterService.counter += 1;
   }
 }
-
 ```
 
-If we try to run this new version of our code, we are going to get an error message in the browser console:
+如果我们尝试运行这个新版本的代码，我们将在浏览器控制台中收到一条错误消息：
 
 ```
 No provider for CounterService!
-
 ```
 
-What this error tells us is that the `AppModule`, where the `EagerComponent` is defined, has no knowledge of a service called `CounterService`. `CounterService` lives in a different branch of the DI tree created for `LazyModule` when it was lazy loaded in the browser.
+这个错误告诉我们，定义了`EagerComponent`的`AppModule`不知道叫做`CounterService`的服务。当`CounterService`在浏览器中延迟加载时，它驻留在为`LazyModule`创建的DI树的不同分支中。
