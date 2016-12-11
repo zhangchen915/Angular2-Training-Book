@@ -1,22 +1,22 @@
 # 定义子路由
 
-When some routes may only be accessible and viewed within other routes it may be appropriate to create them as child routes.
+当某些路由只能在其他路由中访问和查看时，可能适合将其创建为子路由。
 
-For example: The product details page may have a tabbed navigation section that shows the product overview by default. When the user clicks the "Technical Specs" tab the section shows the specs instead.
+例如：产品详细信息页面可能有一个标签式导航部分，默认显示产品概述。 当用户单击“技术规格”选项卡时，该部分将显示规格。
 
-If the user clicks on the product with ID 3, we want to show the product details page with the overview:
+如果用户点击ID为3的产品，我们要显示产品详细信息页面，其中包含概述：
 
 `localhost:3000/product-details/3/overview`
 
-When the user clicks "Technical Specs":
+当用户点击 "Technical Specs":
 
 `localhost:3000/product-details/3/specs`
 
-`overview` and `specs` are child routes of `product-details/:id`. They are only reachable within product details.
+`overview` and `specs` are child routes of `product-details/:id`. 它们只能在产品详细信息中找到。
 
 Our `Routes` with children would look like:
 
-```
+```typescript
 export const routes: Routes = [
   { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductList },
@@ -28,7 +28,6 @@ export const routes: Routes = [
     ]
   }
 ];
-
 ```
 
 Where would the components for these child routes be displayed? Just like we had a `` for the root application component, we would have a router outlet inside the `ProductDetails` component. The components corresponding to the child routes of `product-details`would be placed in the router outlet in `ProductDetails`.
