@@ -1,6 +1,8 @@
-#自定义管道
+# 自定义管道
+
 Angular 2允许创建你自己的管道：
-```ts
+
+```typescript
 import {Pipe, PipeTransform} from '@angular/core';
 
 const FILE_SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -23,13 +25,15 @@ export class FormatFileSizePipe implements PipeTransform {
   }
 }
 ```
+
 每个自定义管道实现必须：
 
-* 使@Pipe装饰器包含具有name属性的管道元数据。 此值将用于在模板表达式中调用此管道。 它必须是有效的JavaScript标识符。
-* 实现PipeTransform接口的transform方法。 此方法接受管道的值和任何类型的可变数量的参数，并返回一个变换的（“管道”）值。
+- 使@Pipe装饰器包含具有name属性的管道元数据。 此值将用于在模板表达式中调用此管道。 它必须是有效的JavaScript标识符。
+- 实现PipeTransform接口的transform方法。 此方法接受管道的值和任何类型的可变数量的参数，并返回一个变换的（“管道”）值。
 
 模板中的每个以冒号分隔的参数按相同的顺序映射到一个方法参数。
-```ts
+
+```typescript
 import {Component} from '@angular/core';
 
 @Component({
@@ -45,4 +49,5 @@ export class Hello {
   largeFileSize = Math.pow(10, 15)
 }
 ```
-[查看示例](http://plnkr.co/edit/hFLQ3qyukTet1h7rREYW?p=preview)
+
+[View Example](http://plnkr.co/edit/hFLQ3qyukTet1h7rREYW?p=preview)
