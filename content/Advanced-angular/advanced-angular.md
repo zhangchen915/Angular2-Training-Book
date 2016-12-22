@@ -1,3 +1,3 @@
-Advanced Angular
+#Angular 高级
 
-Angular 2 gives us access to most of the core entities it uses in its architecture. Now that we understand the different parts involved in an Angular 2 application, let's dig deeper into some of these entities and take advantage of what we know.
+Angular 2让我们可以访问它在其架构中使用的大多数核心实体。 现在我们了解了Angular 2应用程序中涉及的不同部分，让我们深入了解一些这些实体，并利用我们所知道的。

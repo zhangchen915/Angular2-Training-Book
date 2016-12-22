@@ -87,6 +87,7 @@
     * [AoT]()
         * [AoT限制]()
         * [AoT配置]()
+        
 * [Immutable.js](content/immutable/immutable.md)
     * [什么是不可变性？](content/immutable/what_is_immutability.md)
     * [不变性的情况](content/immutable/the_case_for_immutability.md)
@@ -127,7 +128,7 @@
     * [共享模块和依赖注入](content/Modules/shared-Modules-di.md)
     * [共享相同的依赖注入树](content/Modules/shared-di-tree.md)
 
-* [路由](content/Routing/.md)
+* [路由](content/Routing/routing.md)
     * [为什么选择路由？](content/Routing/why_routing.md)
     * [配置路由](content/Routing/config.md)
     * [将路由器重定向到另一条路由](content/Routing/redirects.md)
@@ -135,7 +136,7 @@
     * [动态添加路由组件](content/Routing/routeroutlet.md)
     * [使用路由参数](content/Routing/routerparams.md)
     * [定义子路由](content/Routing/child_routes.md)
-    * [控制对路由的访问](content/Routing/router_guards.md)
+    * [控制对路由的访问](content/Routing/route_guards.md)
     * [将可选参数传递给路由](content/Routing/query_params.md)
     * [使用辅助路由](content/Routing/aux_routes.md)
 
@@ -154,16 +155,16 @@
     * [测试组件](content/Testing/components.md)
         * [检验方法和属性](content/Testing/verify.md)
         * [注入依赖和DOM更改](content/Testing/injecting-dependencies.md)
-        <!--* [覆盖测试的组件](content/Testing/.md)-->
-        <!--* [测试异步操作](content/Testing/.md)-->
-        <!--* [重构难以测试的代码](content/Testing/.md)-->
-    <!--* [测试服务](content/Testing/.md)-->
-    <!--* [服务测试策略](content/Testing/.md)-->
-    <!--* [测试HTTP请求](content/Testing/.md)-->
-    <!--* [使用MockBackend](content/Testing/.md)-->
-    <!--* [替代模拟策略](content/Testing/.md)-->
-    <!--* [测试JSONP和XHR后端](content/Testing/.md)-->
-    <!--* [异步执行测试](content/Testing/.md)-->
+        * [覆盖测试的组件](content/Testing/.md)
+        * [测试异步操作](content/Testing/.md)
+        * [重构难以测试的代码](content/Testing/.md)
+    * [测试服务](content/Testing/services.md)
+        * [服务测试策略](content/Testing/strategies.md)
+        * [测试HTTP请求](content/Testing/http.md)
+            * [使用MockBackend](content/Testing/mockbackend.md)
+            * [替代模拟策略](content/Testing/alt-http-mocking.md)
+            * [测试JSONP和XHR后端](content/Testing/json-xhr.md)
+        * [异步执行测试](content/Testing/async-execution.md)
     <!--* [测试Redux](content/Testing/.md)-->
     <!--* [测试简单操作](content/Testing/.md)-->
     <!--* [测试复杂操作](content/Testing/.md)-->
@@ -203,4 +204,4 @@
         * [使用AoT编译器](content/i18n/import-using-aot.md)
         * [使用JiT编译器](content/i18n/import-using-jit.md)
 * [词汇表](content/glossary.md)
-* [进一步阅读和参考](content/i18n/further-reading.md)
+* [进一步阅读和参考](content/further-reading.md)
