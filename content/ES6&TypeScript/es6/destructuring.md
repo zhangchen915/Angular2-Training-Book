@@ -28,7 +28,7 @@ drawSquare(5);
 drawText('hello');
 ```
 解构也可以用于将对象传递到函数中，从而允许以简洁的方式从对象中提取特定属性。还可以为解构参数分配默认值，如果传入配置对象，这可能是一个有用的模式。
-```
+```javascript
 let jane = { firstName: 'Jane', lastName: 'Doe'};
 let john = { firstName: 'John', lastName: 'Doe', middleName: 'Smith' }
 function sayName({firstName, lastName, middleName = 'N/A'}) {
