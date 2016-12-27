@@ -1,4 +1,4 @@
-#
+# Angular 2's DI
 最后一个例子介绍了一个假设的Injector对象。 角度2更进一步简化了DI。 使用Angular 2，程序员几乎不必陷入注入细节。
 
 Angular 2的DI系统（大部分）通过@NgMule来控制。 具体来说是提供者的数组。
