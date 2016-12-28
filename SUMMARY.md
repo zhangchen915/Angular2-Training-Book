@@ -31,6 +31,12 @@
         * [参数装饰器](content/ES6&TypeScript/typescript/parameter_decorators.md)
 
 * [JavaScript工具链](content/tooling/tooling.md)
+    * [源码控制：Git](content/tooling/source_control.md)
+    * [命令行](content/tooling/the_command_line.md)
+    * [JavaScript命令行：NodeJS](content/tooling/command_line_javascript.md)
+    * [后端代码共享和分发：npm](content/tooling/back_end_code_sharing_and_distribution.md)
+    * [模块加载，打包和构建任务：Webpack](content/tooling/module_loading_bundling_and_build_tasks.md)
+    * [Chrome](content/tooling/chrome.md)
 
 * [引导Angular 2应用程序](content/bootstrapping/bootstrapping.md)
     * [了解文件结构](content/bootstrapping/file_structure.md)
@@ -84,12 +90,12 @@
 
 * [Http](content/Http/http.md)
     * [提出请求](content/Http/making_requests.md)
-    * [捕捉拒绝](content/Http/catching-rejections.md)
-        * [抓住和释放](content/Http/catch_and_release.md)
+    * [捕获拒绝](content/Http/catching-rejections.md)
+        * [捕获和释放](content/Http/catch_and_release.md)
         * [取消请求](content/Http/cancel_request.md)
         * [重试](content/Http/retry.md)
-    * [用平面图搜索](content/Http/search_with_flatmap.md)
-    * [请求作为承诺](content/Http/requests_as_promises.md)
+    * [用flatmap搜索](content/Http/search_with_flatmap.md)
+    * [转换为Promises](content/Http/requests_as_promises.md)
 
 * [变化检测](content/Change-detection/Change_Detection.md)
     * [Angular1与Angular2的变化检测策略](content/Change-detection/angular_1_vs_angular_2.md)
@@ -127,7 +133,7 @@
             * [Map是可迭代的](content/Immutable/maps_are_iterable.md)
         * [Immutable.List](content/Immutable/lists.md)
         * [性能和瞬态变化](content/Immutable/performance_transient_changes.md)
-        * [官方文件](content/Immutable/official_documentation.md)
+        * [官方文档](content/Immutable/official_documentation.md)
 
 * [管道](content/Pipes/pipes.md)
     * [使用管道](content/Pipes/using_pipes.md)
@@ -193,11 +199,11 @@
             * [替代模拟策略](content/Testing/alt-http-mocking.md)
             * [测试JSONP和XHR后端](content/Testing/json-xhr.md)
         * [异步执行测试](content/Testing/async-execution.md)
-            <!--* [测试Redux](content/Testing/.md)-->
-            <!--* [测试简单操作](content/Testing/.md)-->
-            <!--* [测试复杂操作](content/Testing/.md)-->
-            <!--* [测试减速器](content/Testing/.md)-->
-            <!--* [事后](content/Testing/.md)-->
+              <!--* [测试Redux](content/Testing/.md)-->
+              <!--* [测试简单操作](content/Testing/.md)-->
+              <!--* [测试复杂操作](content/Testing/.md)-->
+              <!--* [测试减速器](content/Testing/.md)-->
+              <!--* [事后](content/Testing/.md)-->
 
 * [将Angular1.x项目迁移到Angular 2](content/migrate/migrate.md)
 
