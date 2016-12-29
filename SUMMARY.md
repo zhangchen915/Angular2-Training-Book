@@ -79,8 +79,8 @@
     * [Angular2的DI](content/Di/angular2_di.md)
         * [@Inject()和@Injectable](content/Di/inject_and_injectable.md)
         * [注入以外的类](content/Di/injection_beyond_classes.md)
-        * [Avoiding Injection Collisions: OpaqueToken](content/Di/avoiding_collisions_opaque_token.md)
-        * [注入树](content/Di/avoiding_collisions_opaque_token.md)
+        * [避免注入冲突: OpaqueToken](content/Di/avoiding_collisions_opaque_token.md)
+        * [注入树](content/Di/the_injector_tree.md)
 
 * [Http](content/Http/http.md)
     * [提出请求](content/Http/making_requests.md)
@@ -193,11 +193,11 @@
             * [替代模拟策略](content/Testing/alt-http-mocking.md)
             * [测试JSONP和XHR后端](content/Testing/json-xhr.md)
         * [异步执行测试](content/Testing/async-execution.md)
-              <!--* [测试Redux](content/Testing/.md)-->
-              <!--* [测试简单操作](content/Testing/.md)-->
-              <!--* [测试复杂操作](content/Testing/.md)-->
-              <!--* [测试减速器](content/Testing/.md)-->
-              <!--* [事后](content/Testing/.md)-->
+    * [测试Redux](content/Testing/redux.md)
+        * [测试简单的Action](content/Testing/simple-actions.md)
+        * [测试复杂的Action](content/Testing/complex-actions.md)
+        * [测试减速器](content/Testing/reducers.md)
+        * [Afterthoughts](content/Testing/after-thoughts.md)
 
 * [将Angular1.x项目迁移到Angular 2](content/migrate/migrate.md)
 
