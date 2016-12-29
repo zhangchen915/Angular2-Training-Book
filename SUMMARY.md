@@ -196,7 +196,7 @@
     * [测试Redux](content/Testing/redux.md)
         * [测试简单的Action](content/Testing/simple-actions.md)
         * [测试复杂的Action](content/Testing/complex-actions.md)
-        * [测试减速器](content/Testing/reducers.md)
+        * [测试Reducers](content/Testing/reducers.md)
         * [Afterthoughts](content/Testing/after-thoughts.md)
 
 * [将Angular1.x项目迁移到Angular 2](content/migrate/migrate.md)
