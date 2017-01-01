@@ -31,6 +31,12 @@
         * [参数装饰器](content/ES6&TypeScript/typescript/parameter_decorators.md)
 
 * [JavaScript工具链](content/tooling/tooling.md)
+    * [源码控制：Git](content/tooling/source_control.md)
+    * [命令行](content/tooling/the_command_line.md)
+    * [JavaScript命令行：NodeJS](content/tooling/command_line_javascript.md)
+    * [后端代码共享和分发：npm](content/tooling/back_end_code_sharing_and_distribution.md)
+    * [模块加载，打包和构建任务：Webpack](content/tooling/module_loading_bundling_and_build_tasks.md)
+    * [Chrome](content/tooling/chrome.md)
 
 * [引导Angular 2应用程序](content/bootstrapping/bootstrapping.md)
     * [了解文件结构](content/bootstrapping/file_structure.md)
