@@ -2,9 +2,11 @@
 
 Angular 2中的组件基于这个想法。我们在类中定义组件的应用程序逻辑。为此，我们附上一个选择器和一个模板。
 
-* 选择器：我们用它来告诉Angular创建和插入这个组件实例的元素属性。
-* 模板：HTML的一种形式，它告诉Angular如何呈现这个组件。
-```ts
+* *selector* （选择器）：我们用它来告诉Angular创建和插入这个组件实例的元素属性。
+* *template* （模板）：HTML的一种形式，它告诉Angular如何呈现这个组件。
+下面的组件会将name变量的值插入到双括号`{{name}}`之间的模板中，在视图中呈现的是`<p>Hello World</p>`。
+
+```typescript
 import {Component} from '@angular/core';
 
 @Component({

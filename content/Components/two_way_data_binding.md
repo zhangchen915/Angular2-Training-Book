@@ -8,24 +8,19 @@
 <input [ngModel]="name" (ngModelChange)="name=$event">
 ```
 要创建自己的组件，支持双向绑定，你必须定义一个@Output属性匹配@Input，但与它后缀Change，例如：
-```ts
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+
+`app/counter.component.ts`
+
+```typescript
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'counter',
-  template: `
-    <div>
-      <p>
-        <ng-content></ng-content>
-        Count: {{ count }} -
-        <button (click)="increment()">Increment</button>
-      </p>
-    </div>
-  `
+  selector: 'rio-counter',
+  templateUrl: 'app/counter.component.html'
 })
-export class Counter {
-  @Input() count: number = 0;
-  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+export class CounterComponent {
+  @Input() count = 0;
+  @Output() countChange = EventEmitter<number>();
 
   increment() {
     this.count++;
@@ -33,4 +28,17 @@ export class Counter {
   }
 }
 ```
+
+`app/counter.component.html`
+
+```html
+<div>
+  <p>
+    <ng-content></ng-content>
+    Count: {{ count }} -
+    <button (click)="increment()">Increment</button>
+  </p>
+</div>
+```
+
 [查看示例](http://plnkr.co/edit/nwRNxpoTuk4M60Y5Khq8?p=preview)
