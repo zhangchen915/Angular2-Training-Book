@@ -222,7 +222,8 @@
     * [添加第三方库](content/Angular-CLI/adding-third-party-libraries.md)
     * [集成现有应用程序](content/Angular-CLI/init.md)
 
-* [Angular2中的辅助功能](content/Accessibility/accessibility.md)
+* [Angular2中的无障碍](content/a11y/a11y.md)
+    * [为什么需要无障碍](content/a11y/why-a11y.md)
 
 * [Angular2中的国际化](content/i18n/i18n.md)
     * [过程什么样的，如何参与？](content/i18n/process-and-roles.md)

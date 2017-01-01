@@ -1,11 +1,11 @@
-# AoT Configuration
+# AoT 配置
 
 要在Angular 2中启用AoT，有两种可能的方法：
 
 - 直接使用`ngc` 
 - 使用`@ngtools/webpack`
 
-我们推荐第二种方式，因为它最适合Angular + Webpack工具链。 One problem of using raw `ngc` is that `ngc` tries to inline CSS while lacking necessary context. For example, the `@import 'basscss-basic'` statement in `index.css` would cause an error like `Error: Compilation failed. Resource file not found` with `ngc`. It lacks the information that `'basscss-basic'` is actually a node module inside `node_modules`. On the other hand, `@ngtools/webpack` provides `AotPlugin` and loader for Webpack which shares the context with other loaders/plugins. So when `ngc` is called by `@ngtools/webpack`, it can gather necessary informations from other plugins like `postcss-import` to correctly understand things like `@import 'basscss-basic'`.
+我们推荐第二种方式，因为它最适合Angular + Webpack工具链。
 
 使用原始`ngc`的一个问题是`ngc`会尝试内联CSS，而缺少必要的上下文。 例如，`index.css`中的`@import 'basscss-basic'`语句将导致类似于`Error: Compilation failed. Resource file not found`。 它缺少`“basscss-basic”`实际上是`node_modules`内部的节点模块的信息。 另一方面，`@ngtools/webpack`提供了`AopPlugin`和与其他加载器/插件共享上下文的Webpack加载器。 所以当ngc由`@ngtools/webpack`调用时，它可以从其他插件收集必要的信息，如`postcss-import`，以正确理解像`@import 'basscss-basic'`。
 
