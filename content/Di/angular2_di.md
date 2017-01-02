@@ -8,16 +8,16 @@ Angular 2的DI系统（大部分）通过`@NgModule`来控制。 具体来说是
 ```typescript
 import { Injectable, NgModule } from '@angular/core';
 
-@Injectable()
-class Hamburger {
-  constructor(private bun: Bun, private patty: Patty,
-    private toppings: Toppings) {}
+@Component({...})
+class ChatWidget {
+  constructor(private authService: AuthService, private authWidget: AuthWidget,
+    private chatSocket: ChatSocket) {}
 }
 
 @NgModule({
-  providers: [ Hamburger ],
+  declarations: [ ChatWidget ]
 })
-export class DiExample {};
+export class AppModule {};
 ```
 在上面的例子中，`AppModule`被告知关于`ChatWidget`类。 另一种说法是，Angular 2已经提供了一个`ChatWidget`。
 
@@ -32,23 +32,24 @@ Angular 2假设它被赋予一个类。
 ```typescript
 import { Injectable, NgModule } from '@angular/core';
 
-@Injectable()
-class Hamburger {
-  constructor(private bun: Bun, private patty: Patty,
-    private toppings: Toppings) {}
+@Component({...})
+class ChatWidget {
+  constructor(private authService: AuthService, private authWidget: AuthWidget,
+    private chatSocket: ChatSocket) {}
 }
 
-@Injectable()
-class Patty {}
+@Component({...})
+class AuthWidget {}
 
 @Injectable()
-class Bun {}
+class AuthService {}
 
 @Injectable()
-class Toppings {}
+class ChatSocket {}
 
 @NgModule({
-  providers: [ Hamburger, Patty, Bun, Toppings ],
-})
+  declarations[ ChatWidget, AuthWidget ]
+  providers: [ AuthService, ChatSocket ],
+})		
 ```
 好吧，这开始看起更完整一些了。虽然还不清楚`ChatWidget`如何被告知关于它的依赖。也许这与那些奇怪的`@Injectable`语句有关。
