@@ -89,7 +89,7 @@
         * [注入树](content/Di/the_injector_tree.md)
 
 * [Http](content/Http/http.md)
-    * [提出请求](content/Http/making_requests.md)
+    * [发起请求](content/Http/making_requests.md)
     * [捕获拒绝](content/Http/catching-rejections.md)
         * [捕获和释放](content/Http/catch_and_release.md)
         * [取消请求](content/Http/cancel_request.md)

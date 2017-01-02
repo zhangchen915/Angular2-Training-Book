@@ -1,6 +1,6 @@
 #捕获拒绝
 要捕获拒绝，我们使用订阅者的 `error` 和 `complete`的回调。
-```ts
+```typescript
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 

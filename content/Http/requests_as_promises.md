@@ -1,9 +1,9 @@
 #转换为Promises
 Angular HTTP客户端返回的observable可以转换成promise。
 
-> 我们建议在承诺上使用可观察量。 通过转换为promise，您将失去取消请求的能力和链接RxJS运算符的能力。
+> 我们建议在promises上使用observables 。 通过转换为promise，您将失去取消请求的能力和链接RxJS运算符的能力。
 
-```ts
+```typescript
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -24,7 +24,7 @@ export class SearchService {
 ```
 
 然后我们将其作为组件中的常规Promise。
-```ts
+```typescript
 @Component({ /* ... */ })
 export class MyApp {
     /* ... */
