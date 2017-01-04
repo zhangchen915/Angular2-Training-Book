@@ -1,14 +1,14 @@
 # Zones
 
-Zone.js提供了一种称为区域的机制，用于封装和拦截浏览器中的异步活动（例如setTimeout，promise）。
+[Zone.js](https://github.com/angular/zone.js) 提供了一种称为区域的机制，用于封装和拦截浏览器中的异步活动（例如setTimeout，promise）。
 
-这些区域是执行上下文，允许Angular跟踪异步活动的开始和完成，并根据需要执行任务（例如，变化检测）。 Zone.js提供了一个全局区域，可以被分叉和扩展以进一步封装/隔离异步行为，Angular在其NgZone服务中通过创建一个fork并使用自己的行为扩展它。
+这些区域是执行上下文，允许Angular跟踪异步活动的开始和完成，并根据需要执行任务（例如，变化检测）。 Zone.js提供了一个全局区域，可以被 fork 和扩展以进一步封装/隔离异步行为，Angular在其**NgZone**服务中通过创建一个fork并使用自己的行为扩展它。
 
-NgZone服务为我们提供了一些Observable和方法来确定Angular的区域的状态，并在Angular的区域内外以不同的方式执行代码。
+**NgZone**服务为我们提供了一些Observable和方法来确定Angular的区域的状态，并在Angular的区域内外以不同的方式执行代码。
 
-重要的是要知道Zone.js通过Monkey Patching浏览器中的常见方法和元素来完成这些各种拦截，例如。 setTimeout和HTMLElement.prototype.onclick。 这些拦截可能导致外部库和Angular之间的意外行为。 在某些情况下，可能优先在Angular的区域外执行第三方方法（见下文）。
+重要的是要知道Zone.js通过[Monkey Patching（猴子补丁）](https://en.wikipedia.org/wiki/Monkey_patch)来对浏览器中的常见方法和元素进行拦截，例如`setTimeout`和`HTMLElement.prototype.onclick`。 这些拦截可能导致外部库和Angular之间的意外行为。 在某些情况下，可能优先在Angular的区域外执行第三方方法（见下文）。
 
-## In The Zone
+## 在 Zone 内
 
 NgZone公开了一组Observable，允许我们确定Angular's区域的当前状态或稳定性。
 
@@ -17,7 +17,7 @@ NgZone公开了一组Observable，允许我们确定Angular's区域的当前状�
 * onStable - 在最后一个onMicroTaskEmpty运行时通知，表示所有任务已完成，并且已发生变化检测。
 * onError - 在发生错误时通知。 Angular在内部订阅，以将未捕获的错误发送到自己的错误处理程序，即您在控制台中看到的错误，前缀为“EXCEPTION：”。
 
-订阅这些我们注入NgZone到我们的组件/服务/ etc。 并订阅公共Observables。
+我们订阅这些注入了**NgZone**的组件，服务等。 并订阅公共Observables。
 
 ```typescript
 import { Injectable, NgZone } from '@angular/core';
@@ -44,14 +44,17 @@ export class OurZoneWatchingService() {
 }
 ```
 
-订阅这些可以帮助您确定您的代码是否意外触发作为不影响应用程序状态的操作的结果的更改检测。
+订阅这些可以帮助您确定代码是否意外触发了不影响应用程序状态的变化检测。
 
-## Change Detection
+## 变化检测
 
 因为从Angular的区域内执行的所有异步代码都可以触发变化检测，所以当不需要变化检测时，您可能更喜欢在Angular的区域之外执行一些代码。
-为了在Angular的上下文之外运行代码，NgZone提供了一个名为runOutsideAngular的方法。 使用此方法，Angular的区域不会与您的代码交互，并且在全局区域变得稳定时不会接收事件。
-在这个例子中，你将在日志中看到当代码运行在它的外部时，Angular的区域会发生什么。
-你会注意到，在这两种情况下，点击按钮导致Angular区域变得不稳定，由于Zone.js修补和观看HTMLElement.prototype.onclick，但是在Angular的区域之外执行的setInterval不会影响它的稳定性，并且不会触发变化检测 。
+
+为了在Angular的上下文之外运行代码，**NgZone**提供了一个名为**runOutsideAngular**的方法。 使用此方法，Angular的区域不会与您的代码交互，并且在全局区域变得稳定时不会接收事件。
+
+在这个 [例子](http://plnkr.co/edit/d3KGMh?p=preview)中，你将在日志中看到当代码运行在它的外部时，Angular的区域会发生什么。
+
+你会注意到，在这两种情况下，点击按钮导致Angular区域变得不稳定，由于Zone.js补丁和监听**HTMLElement.prototype.onclick**，但是在Angular的区域之外执行的**setInterval**不会影响它的稳定性，并且不会触发变化检测 。
 
 ## Debugging
 

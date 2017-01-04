@@ -1,10 +1,10 @@
 #强制不变性
 
-我们在前面的例子中做了一点。 我们告诉Angular我们所有的输入，包括actor对象，都是不可变的对象，但是我们继续更新它的属性，违反了不变性原则。 因此，我们最终在我们的模型和我们的视图之间出现同步问题。 一种强制不变性的方法是使用库Immutable.js。
+我们在前面的例子中做了一点。 我们告诉Angular我们所有的输入，包括`actor`对象，都是不可变的对象，但是我们继续更新它的属性，违反了不变性原则。 因此，我们最终在我们的模型和我们的视图之间出现同步问题。 一种强制不变性的方法是使用 [Immutable.js](https://facebook.github.io/immutable-js/) 库。
 
-因为在JavaScript原始类型，如字符串和数字是不可变的，通过定义，我们应该只处理我们正在使用的对象。 在这种情况下，actor对象。
+因为在JavaScript原始类型，如`string` 和 `number` 是不可变的，通过定义，我们应该只处理我们正在使用的对象。 在本例中为`actor`对象。
 
-这里有一个例子，比较可变的数组类型和不可变的字符串类型：
+这里有一个例子，比较可变的`array` 类型和不可变的`string`类型：
 
 ```typescript
 var b = ['C', 'a', 'r'];
@@ -22,9 +22,9 @@ console.log(a); // 'Car' => The first letter didn't change, strings are immutabl
 npm install --save immutable
 ```
 
-然后在我们的MainComponent中，我们导入库并使用它创建一个不可变的actor对象。
+然后在我们的`AppComponent`中，我们导入库并使用它创建一个不可变的`actor`对象。
 
-*app/main.component.ts*
+*app/app.component.ts*
 
 ```typescript
 import {Component} from '@angular/core';
@@ -50,11 +50,11 @@ export class MainComponent {
 }
 ```
 
-现在，我们不是创建一个Actor类的实例，而是使用Immutable.Map来定义一个不可变的对象。 因为this.actor现在是一个不可变的对象，我们不能直接改变它的内部属性（firstName和lastName）。 然而，我们可以做的是创建另一个基于actor的对象，这两个字段具有不同的值 - 这正是merge方法的作用。
+现在，我们不是创建一个Actor类的实例，而是使用`Immutable.Map`来定义一个不可变的对象。 因为`this.actor`现在是一个不可变的对象，我们不能直接改变它的内部属性（`firstName`和`lastName`）。 然而，我们可以做的是创建另一个基于`actor`的对象，这两个字段具有不同的值 - 这正是`merge`方法的作用。
 
-因为当我们尝试改变actor时，我们总是得到一个新的对象，所以在我们的组件中有两个不同的方法没有意义。 我们删除了方法changeActorProperties和changeActorObject并创建了一个名为changeActor的新方法。
+因为当我们尝试改变`actor`时，我们总是得到一个新的对象，所以在我们的组件中有两个不同的方法没有意义。 我们删除了方法`changeActorPrope`rties和`changeActorObject`并创建了一个名为`changeActor`的新方法。
 
-还必须对MovieComponent进行其他更改。 首先，我们需要将actor对象声明为不可变类型，并且在模板中，而不是尝试使用类似actor.firstName的语法直接访问对象属性，我们需要使用不可变的get方法。
+还必须对`MovieComponent`进行其他更改。 首先，我们需要将`actor`对象声明为不可变类型，并且在模板中，而不是尝试使用类似`actor.firstName`的语法直接访问对象属性，我们需要使用不可变的`get`方法。
 
 *app/movie.component.ts*
 
@@ -82,4 +82,4 @@ export class MovieComponent {
 }
 ```
 
-使用这种模式，我们充分利用了“OnPush”变化检测策略，从而减少了Angular传播变化和获得模型和视图同步的工作量。 这提高了应用程序的性能。
+使用这种模式，我们充分利用了“OnPush”变化检测策略，从而减少了Angular传播变化、获得模型、视图同步的工作量。 这提高了应用程序的性能。
