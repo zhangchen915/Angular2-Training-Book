@@ -3,6 +3,7 @@
 Zone.js提供了一种称为区域的机制，用于封装和拦截浏览器中的异步活动（例如setTimeout，promise）。
 
 这些区域是执行上下文，允许Angular跟踪异步活动的开始和完成，并根据需要执行任务（例如，变化检测）。 Zone.js提供了一个全局区域，可以被分叉和扩展以进一步封装/隔离异步行为，Angular在其NgZone服务中通过创建一个fork并使用自己的行为扩展它。
+
 NgZone服务为我们提供了一些Observable和方法来确定Angular的区域的状态，并在Angular的区域内外以不同的方式执行代码。
 
 重要的是要知道Zone.js通过Monkey Patching浏览器中的常见方法和元素来完成这些各种拦截，例如。 setTimeout和HTMLElement.prototype.onclick。 这些拦截可能导致外部库和Angular之间的意外行为。 在某些情况下，可能优先在Angular的区域外执行第三方方法（见下文）。
@@ -54,13 +55,15 @@ export class OurZoneWatchingService() {
 
 ## Debugging
 
-Generally, exceptions thrown during a chain of asynchronous events will only include the current method in their stack trace.
+通常，在异步事件链期间抛出的异常将仅包括在当前方法的堆栈跟踪中。
 
-With Zone.js tracking all of our asynchronous calls it can provide us a longer, more detailed, stack trace of the events and calls that occurred leading up to our exception.
+使用Zone.js跟踪所有的异步调用，它可以为我们提供更长，更详细的事件和调用的堆栈跟踪，让我们更容易找到导致异常的原因。
 
-To enable long stack traces in development, you should include the **long-stack-trace-zone** module in your code. It is a good idea not to include this in your production build but Angular will skip setting up longer stack traces when in production mode (`enableProdMode` from `@angular/core`).
+要在开发中启用长堆栈跟踪，您应该在代码中包括**long-stack-trace-zone**模块。 但最好不要包括在您的生产构建中，Angular将跳过设置更长的堆栈跟踪在生产模式（`@angular/core`中的`enableProdMode`）。
 
 Angular will take care of forking and extending its own zone to display more meaningful stack traces.
+
+Angular将负责分叉 forking 并扩展其自己的区域以显示更有意义的堆栈跟踪。
 
 ```
 if (__PRODUCTION__) {
@@ -68,10 +71,9 @@ if (__PRODUCTION__) {
 } else {
   require('zone.js/dist/long-stack-trace-zone');
 }
-
 ```
 
-With the following code, we start by calling `startAsync` which triggers a chain of setTimeouts leading up to an uncaught error.
+使用下面的代码，我们首先调用`startAsync`，触发一个`setTimeouts`链，导致一个未捕获的错误。
 
 ```
 function startAsync() {
@@ -85,12 +87,11 @@ function stepOne() {
 function stepTwo() {
   throw new Error('Finished');
 }
-
 ```
 
-### Simple Stack trace
+### 简单堆栈跟踪
 
-This is a typical stack trace that you would see in this scenario, without Zone, showing only the function where the unhandled exception occurred.
+这是一个典型的堆栈跟踪，您将在此场景中看到，没有Zone，只显示发生未处理异常的函数。
 
 ```
 Uncaught Error: Finished(…)
@@ -98,13 +99,13 @@ Uncaught Error: Finished(…)
 
 ```
 
-### Detailed "Long" Stack trace
+### 详细的“长”堆栈跟踪
 
-In the stack trace below, you can see the order of events that occurred within this asynchronous chain of function calls, '>>' has been added to point out our functions.
+在下面的堆栈跟踪中，您可以看到在这个异步函数调用链中发生的事件的顺序，添加了“>>”以指出我们的函数。
 
-You'll notice this stack trace includes much more information, including Zone's own task management (e.g. `onScheduleTask`), as well as the time that elapsed between when the function was queued and when it was executed.
+你会注意到这个堆栈跟踪包括更多的信息，包括Zone自己的任务管理（例如`onScheduleTask`），以及从函数排队到执行时间的时间。
 
-Having this longer stack trace may aide you with debugging which feature of Angular your code is interacting with asynchronously and help you narrow down where your problem is occuring.
+通过这个更长的堆栈跟踪可以帮助你调试Angular的特性，异步交互代码，并有助于更精确定位问题。
 
 ```
 debugging.html:16 Error: Finished
