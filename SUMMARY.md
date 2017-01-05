@@ -174,7 +174,7 @@
     * [将可选参数传递给路由](content/Routing/query_params.md)
     * [使用辅助路由](content/Routing/aux-routes.md)
 
-* [Redux 和 Ngrx]()
+* [Redux 和 Ngrx](content/redux/redux.md)
 
 * [TDD测试](content/Testing/testing.md)
     * [测试工具链](content/Testing/toolchain.md)
