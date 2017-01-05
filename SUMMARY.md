@@ -121,7 +121,7 @@
 
 * [Immutable.js](content/Immutable/immutable.md)
     * [什么是不可变性？](content/Immutable/what_is_immutability.md)
-    * [不变性的情况](content/Immutable/the_case_for_immutability.md)
+    * [不变性的应用场景](content/Immutable/the_case_for_immutability.md)
     * [JavaScript解决方案](content/Immutable/javascript-solutions.md)
         * [Object.assign](content/Immutable/object_assign.md)
         * [Object.freeze](content/Immutable/object_freeze.md)

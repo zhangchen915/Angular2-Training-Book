@@ -1,6 +1,6 @@
 # 创建结构指令
 
-We'll create an `appDelay` structural directive that delays instantiation of a component or element. This can potentially be used for cosmetic effect or for manually handling timing of when components are loaded, either for performance or UX.
+我们将创建一个延迟组件或元素实例化的`appDelay`结构指令。 这可以潜在地用于美化效果或用用于手动处理组件加载的时间，无论是性能还是UX。
 
 ```typescript
 @Directive({
