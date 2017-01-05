@@ -1,6 +1,6 @@
 #删除键
-可以使用Map.delete和Map.deleteIn方法从Maps中删除键。
-```ts
+可以使用`Map.delete`和`Map.deleteIn`方法从Maps中删除键。
+```js
 let movie = Immutable.fromJS({
     name: 'Star Wars',
     episode: 7,

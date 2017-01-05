@@ -1,6 +1,6 @@
 #Map.merge
-有时我们想更新多个属性。 我们可以使用merge方法做到这一点。
-```ts
+有时我们想更新多个属性。 我们可以使用`merge`方法做到这一点。
+```js
 let baseButton = Immutable.Map<string, any>({
   text: 'Click me!',
   state: 'inactive',
