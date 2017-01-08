@@ -1,6 +1,6 @@
-# FormBuilder 自定义验证
+# 自定义验证响应式表单
 
-As useful as the built-in validators are, it is very useful to be able to include your own. Angular 2 allows you to do just that, with minimal effort.
+内置验证器非常有用，能够引入你自己的验证方式。 Angular 2可以让你以很轻松地做到。
 
 让我们假设使用相同的登录表单，但现在我们还要测试我们的密码在其中某处有感叹号。
 

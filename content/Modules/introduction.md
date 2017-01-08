@@ -28,20 +28,19 @@ export class AppModule { }
 
 *app/app.component.ts*
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rio-app',
+  selector: 'app-root',
   template: '<h1>My Angular 2 App</h1>'
 })
 export class AppComponent {}
-
 ```
 
 *app/app.module.ts*
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
