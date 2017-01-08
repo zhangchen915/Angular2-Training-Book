@@ -1,4 +1,4 @@
-# Using Template Model Binding
+# 使用 Model 绑定
 
 ### 单向绑定
 
@@ -40,8 +40,7 @@ export class SignupForm {
 ### 双向绑定
 
 虽然Angular 2默认情况下假定单向绑定，但如果需要，双向绑定仍然可用。
-为了能够访问模板驱动表单中的双向绑定，请使用“Banana-Box”语法`([(ngModel)] ="propertyName")`。
-请务必声明组件上需要的所有属性。
+为了能够访问模板驱动表单中的双向绑定，请使用“Banana-Box”语法`([(ngModel)] ="propertyName")`。请务必声明组件上需要的所有属性。
 
 ```typescript
 <form #signupForm="ngForm" (ngSubmit)=register(signupForm)>
@@ -54,7 +53,9 @@ export class SignupForm {
 
   <button type="submit">Sign Up</button>
 </form>
+```
 
+```typescript
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 // ...

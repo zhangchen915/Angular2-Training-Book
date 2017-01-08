@@ -2,32 +2,30 @@
 
 ### Opt-In APIs
 
-在我们深入到任何表单的功能之前，我们需要使用`FormsModule`和/或`ReactiveFormsModule`引导我们的应用程序。
+在我们深入了解任何表单的功能之前，我们需要使用`FormsModule`和/或`ReactiveFormsModule`引导我们的应用程序。
 
 ```typescript
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MyApp } from './components'
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './components'
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
   ],
-  declarations: [MyApp],
-  bootstrap: [MyApp]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class MyAppModule {
-
+export class AppModule {
 }
 
-platformBrowserDynamic().bootstrapModule(MyAppModule)
+platformBrowserDynamic().bootstrapModule(AppModule)
 ```
 
-### 输入标签
+### Input 标签
 
-大多数表单示例使用以下HTML5样式来标记输入：
+大多数表单示例使用以下HTML5样式来标记Input：
 
 ```html
 <label for="name">Name</label>
