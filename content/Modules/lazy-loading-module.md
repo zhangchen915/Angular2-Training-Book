@@ -28,7 +28,7 @@ import { routing } from './app.routing';
 export class AppModule {}
 ```
 
-到目前为止，这是一个非常常见的模块，依赖于`BrowserModule，`有一个路由机制和两个组件：`AppComponent`和`EagerComponent。` 现在，让我们专注于定义导航的应用程序（`AppComponent`）的根组件。
+到目前为止，这是一个非常常见的模块，依赖于`BrowserModule`，有一个路由机制和两个组件：`AppComponent`和`EagerComponent`。 现在，让我们专注于定义导航的应用程序（`AppComponent`）的根组件。
 
 *app/app.component.ts*
 
@@ -36,7 +36,7 @@ export class AppModule {}
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   template: `
     <h1>My App</h1>
     <nav>
@@ -68,7 +68,7 @@ const routes: Routes = [
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
 ```
 
-这里我们可以看到，在我们的应用程序中的默认路径叫做`eager` ，它将加载`EagerComponent。`
+这里我们可以看到，在我们的应用程序中的默认路径叫做`eager` ，它将加载`EagerComponent`。
 
 *app/eager.component.ts*
 

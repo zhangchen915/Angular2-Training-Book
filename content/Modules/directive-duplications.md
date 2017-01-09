@@ -11,7 +11,7 @@
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[highlight]'
+  selector: '[appHighlight]'
 })
 export class BlueHighlightDirective {
   constructor(renderer: Renderer, el: ElementRef) {
@@ -27,7 +27,7 @@ export class BlueHighlightDirective {
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[highlight]'
+  selector: '[appHighlight]'
 })
 export class YellowHighlightDirective {
   constructor(renderer: Renderer, el: ElementRef) {
@@ -69,7 +69,7 @@ import { Component } from "@angular/core";
 export class AppComponent {}
 ```
 
-我们可以看到，在我们的组件模板中，我们在h1元素中使用了指令高亮，但是哪些风格最终会被应用？ 答案是：文本将是灰色的，背景是黄色的。
+我们可以看到，在我们的组件模板中，我们在`h1`元素中使用了`appHighlight`指令，但是哪些风格最终会被应用？ 答案是：文本将是灰色的，背景是黄色的。
 
 [View Example](https://plnkr.co/edit/vwfSCpqOspwjICC6eKY2?p=preview)
 
@@ -83,5 +83,5 @@ declarations: [
 ]
 ```
 
-因为我们已经在数组中定义了两个指令，并且数组是**有序集合的项**，当编译器找到具有属性高亮的元素时，它将首先应用BlueHighlightDirective的变换，将文本设置为灰色，将背景设置为蓝色，然后 应用YellowHighlightDirective的变换，再次将背景颜色更改为黄色。
+因为我们已经在数组中定义了两个指令，并且数组是**有序集合的项**，当编译器找到具有`appHighlight`属性的元素时，它将首先应用`BlueHighlightDirective`的变换，将文本设置为灰色，将背景设置为蓝色，然后 应用`YellowHighlightDirective`的变换，再次将背景颜色更改为黄色。
 总之，**当两个或多个指令定位同一个元素时，它们将按照它们定义的顺序应用**。
