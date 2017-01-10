@@ -2,8 +2,6 @@
 
 不同于单独定义每个路由的组件，使用`RouterOutlet`作为组件占位符; Angular 2会将被激活的路由的组件动态地添加到`<router-outlet> </ router-outlet>`元素中。
 
-
-
 ```typescript
 import { Component } from '@angular/core';
 
@@ -26,4 +24,4 @@ export class AppComponent {}
 
 [View Example](https://plnkr.co/edit/odsZq1pL43HtWcUr0taJ?p=preview)
 
-> 查看以全屏模式运行的示例，以查看URL的变化。
+> 用全屏模式运行示例，以查看URL的变化。

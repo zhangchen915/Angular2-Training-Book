@@ -2,11 +2,11 @@
 
 现在我们已经证明延迟加载模块在依赖注入树上创建自己的分支，我们需要学习如何处理通过在 `eager` 和`lazy` 加载模块中的共享模块导入的服务。
 
-让我们创建一个名为SharedModule的新模块，并在那里定义CounterService。
+让我们创建一个名为`SharedModule`的新模块，并在那里定义`CounterService`。
 
 *app/shared/shared.module.ts*
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { CounterService } from './counter.service';
 
@@ -14,14 +14,13 @@ import { CounterService } from './counter.service';
   providers: [CounterService]
 })
 export class SharedModule {}
-
 ```
 
-Now we are going to import that `SharedModule` in the `AppModule` and the `LazyModule`.
+现在我们将引入 `SharedModule` 到`AppModule` 和`LazyModule`中。
 
 *app/app.module.ts*
 
-```
+```typescript
 ...
 import { SharedModule } from './shared/shared.module';
 
@@ -37,12 +36,11 @@ import { SharedModule } from './shared/shared.module';
   ...
 })
 export class AppModule {}
-
 ```
 
 *app/lazy/lazy.module.ts*
 
-```
+```typescript
 ...
 import { SharedModule } from '../shared/shared.module';
 
@@ -54,14 +52,13 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [LazyComponent]
 })
 export class LazyModule {}
-
 ```
 
-With this configuration, the components of both modules will have access to the `CounterService`. We are going to use this service in `EagerComponent` and `LazyComponent` in exactly the same way. Just a button to increase the internal `counter` property of the service.
+使用此配置，两个模块的组件都可以访问`CounterService`。 我们将以完全相同的方式在`EagerComponent`和`LazyComponent`中使用此服务。 只是一个按钮来增加服务的内部`counter`属性。
 
 *app/eager.component.ts*
 
-```
+```typescript
 import { Component } from '@angular/core';
 import { CounterService } from './shared/counter.service';
 
@@ -79,7 +76,6 @@ export class EagerComponent {
     this.counterService.counter += 1;
   }
 }
-
 ```
 
 [View Example](https://plnkr.co/edit/7evZh7XMUxf9HPPKdqYa?p=preview)

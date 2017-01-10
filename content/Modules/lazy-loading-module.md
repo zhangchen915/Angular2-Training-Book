@@ -1,6 +1,6 @@
 # 延迟加载模块
 
-使用模块将我们的应用的相关功能分组的另一个优点是能够按需加载那些片段。 延迟加载模块有助于减少启动时间。 通过延迟加载，我们的应用程序不需要立即加载所有内容，它只需要加载用户期望在应用程序第一次加载时看到的内容。 延迟加载的模块只会在用户导航到其路由时加载。
+使用模块将我们的应用的相关功能分组的另一个优点是能够按需加载那些片段。 延迟加载模块有助于减少启动时间。 通过延迟加载，我们的应用程序不需要立即加载所有内容，它只需要加载用户期望第一次加载时看到的内容。 延迟加载的模块只会在用户导航到其路由时加载。
 
 为了显示这种关系，让我们开始定义一个简单的模块，作为我们的示例应用程序的根模块。
 
@@ -81,7 +81,7 @@ import { Component } from '@angular/core';
 export class EagerComponent {}
 ```
 
-但更重要的是，我们可以看到，每当我们试图去懒惰的路径，我们会懒加载一个模块，方便地称为`LazyModule` 。 仔细观察那条路线的定义：
+但更重要的是，我们可以看到，每当我们试图去`lazy`的路径，我们会懒加载一个模块，方便地称为`LazyModule` 。 仔细观察那条路由的定义：
 
 ```typescript
 { path: 'lazy', loadChildren: 'lazy/lazy.module#LazyModule' }
@@ -97,7 +97,7 @@ export class EagerComponent {}
 
 *app/lazy/lazy.module.ts*
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 
 import { LazyComponent }   from './lazy.component';
@@ -108,12 +108,11 @@ import { routing } from './lazy.routing';
   declarations: [LazyComponent]
 })
 export class LazyModule {}
-
 ```
 
-> 如果我们定义类LazyModule作为文件的默认导出，我们不需要在loadChildren属性中定义类名称，如上所示。
+> 如果我们定义类`LazyModule`作为文件的默认导出，我们不需要在`loadChildren`属性中定义类名称，如上所示。
 
-路由对象非常简单，只定义导航到`lazy`路径时加载的默认组件。
+ `routing` 对象非常简单，只定义导航到`lazy`路径时加载的默认组件。
 
 *app/lazy/lazy.routing.ts*
 
@@ -130,9 +129,9 @@ const routes: Routes = [
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
 ```
 
-注意，我们使用方法调用forChild而不是forRoot来创建路由对象。 我们应该在为特征模块创建路由对象时始终这样做，无论模块应该是eagerly 还是 lazily加载。
+注意，我们使用方法调用`forChild`而不是`forRoot`来创建路由对象。 我们应该在为特征模块创建路由对象时始终这样做，无论模块应该是`eagerly` 还是 `lazily`加载。
 
-最后，我们的LazyComponent非常类似于EagerComponent，并且只是一些文本的占位符。
+最后，我们的`LazyComponent`非常类似于`EagerComponent`，并且只是一些文本的占位符。
 
 *app/lazy/lazy.component.ts*
 

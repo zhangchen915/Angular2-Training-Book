@@ -6,7 +6,7 @@
 
 *app/shared/shared.module.ts*
 
-```
+```typescript
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CounterService } from './counter.service';
 
@@ -25,7 +25,7 @@ export class SharedModule {
 
 *app/app.module.ts*
 
-```
+```typescript
 ...
 import { SharedModule } from './shared/shared.module';
 
@@ -39,11 +39,11 @@ import { SharedModule } from './shared/shared.module';
 export class AppModule {}
 ```
 
-相反，当在`LazyModule`中导入相同的模块时，我们不会调用forRoot方法，因为我们不想在DI树的不同级别注册该服务，因此`LazyModule`的声明不会改变。
+相反，当在`LazyModule`中导入相同的模块时，我们不会调用`forRoot`方法，因为我们不想在DI树的不同级别注册该服务，因此`LazyModule`的声明不会改变。
 
 *app/lazy/lazy.module.ts*
 
-```
+```typescript
 ...
 import { SharedModule } from '../shared/shared.module';
 
@@ -55,9 +55,8 @@ import { SharedModule } from '../shared/shared.module';
   ...
 })
 export class LazyModule {}
-
 ```
 
 [View Example](https://plnkr.co/edit/xz5wZvqQvzdD0uOZYXg4?p=preview)
 
-这次，只要我们更改计数器属性的值，该值就会在`EagerComponent`和`LazyComponent`之间共享，证明我们正在使用`CounterService`的同一个实例。
+这次，只要我们更改`counter` 属性的值，该值就会在`EagerComponent`和`LazyComponent`之间共享，证明我们正在使用`CounterService`的同一个实例。

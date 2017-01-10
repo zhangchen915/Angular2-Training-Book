@@ -2,11 +2,11 @@
 
 延迟加载模块在依赖注入（DI）树上创建自己的分支。 这意味着可能拥有属于延迟加载模块的服务，这些服务不能由根模块或我们的应用程序的任何其他热加载的模块访问。
 
-为了显示这种行为，让我们继续上一节的示例，并向我们的`LazyModule`添加一个`CounterService。`
+为了显示这种行为，让我们继续上一节的示例，并向我们的`LazyModule`添加一个`CounterService`。
 
 *app/lazy/lazy.module.ts*
 
-```
+```typescript
 ...
 import { CounterService } from './counter.service';
 
@@ -21,7 +21,7 @@ export class LazyModule {}
 
 *app/lazy/counter.service.ts*
 
-```
+```typescript
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -34,7 +34,7 @@ export class CounterService {
 
 *app/lazy/lazy.component.ts*
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 import { CounterService } from './counter.service';
@@ -58,13 +58,13 @@ export class LazyComponent {
 
 [View Example](https://plnkr.co/edit/RUp3QhHWmxBIQQAAw2im?p=preview)
 
-服务可以工作了。 如果我们递增计数器，然后在eager和惰性路由之间来回导航，计数器值将在延迟加载模块中持续。
+服务可以工作了。 如果我们递增计数器，然后在`eager`和 `lazy`路由之间来回导航，`counter`值将在延迟加载模块中持续。
 
 但问题是，我们如何验证服务是隔离的，不能在属于不同模块的组件中使用？ 让我们尝试在`EagerComponent`中使用相同的服务。
 
 *app/eager.component.ts*
 
-```
+```typescript
 import { Component } from '@angular/core';
 import { CounterService } from './lazy/counter.service';
 
