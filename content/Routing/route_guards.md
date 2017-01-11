@@ -1,20 +1,20 @@
-# Controlling Access to or from a Route
+# 控制对路由的访问
 
-To control whether the user can navigate to or away from a given route, use route guards.
+要控制用户是否可以导航到或离开指定路由，请使用路由哨兵。
 
-For example, we may want some routes to only be accessible once the user has logged in or accepted Terms & Conditions. We can use route guards to check these conditions and control access to routes.
+例如，我们可能希望一些路线只有在用户登录或接受条款和条件后才可访问。 我们可以使用路由哨兵来检查这些条件并控制对路由的访问。
 
-Route guards can also control whether a user can leave a certain route. For example, say the user has typed information into a form on the page, but has not submitted the form. If they were to leave the page, they would lose the information. We may want to prompt the user if the user attempts to leave the route without submitting or saving the information.
+路由哨兵还可以控制用户是否可以离开某个路由。 例如，假设用户已将信息键入页面上的表单，但尚未提交表单。 如果这时离开页面，他们将丢失信息。 如果用户尝试离开路由而不是提交或保存信息，我们可以提示用户。
 
-## Registering the Route Guards with Routes
+## 在路由上注册路由哨兵
 
-In order to use route guards, we must register them with the specific routes we want them to run for.
+为了使用路由哨兵，我们必须在我们希望它们运行的特定路由上注册它们。
 
-For example, say we have an `accounts` route that only users that are logged in can navigate to. This page also has forms and we want to make sure the user has submitted unsaved changes before leaving the accounts page.
+例如，假设我们有一个`accounts` 路由，只有登录的用户可以访问。 此页面还有表单，我们希望确保用户在离开帐户页面之前提交了未保存的更改。
 
-In our route config we can add our guards to that route:
+在我们的路由配置中，我们可以添加我们的哨兵到该路由：
 
-```
+```typescript
 import { Routes, RouterModule } from '@angular/router';
 import { AccountPage } from './account-page';
 import { LoginRouteGuard } from './login-route-guard';
@@ -33,16 +33,15 @@ const routes: Routes = [
 export const appRoutingProviders: any[] = [];
 
 export const routing = RouterModule.forRoot(routes);
-
 ```
 
-Now `LoginRouteGuard` will be checked by the router when activating the `accounts` route, and `SaveFormsGuard` will be checked when leaving that route.
+现在`LoginRouteGuard`将在`accounts` 路由激活时检查，`SaveFormsGuard`将在离开该路由时被检查。
 
-## Implementing CanActivate
+## 实现CanActivate
 
-Let's look at an example activate guard that checks whether the user is logged in:
+让我们看一个例子激活哨兵检查用户是否登录：
 
-```
+```typescript
 import { CanActivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login-service';
@@ -56,32 +55,30 @@ export class LoginRouteGuard implements CanActivate {
     return this.loginService.isLoggedIn();
   }
 }
-
 ```
 
-This class implements the `CanActivate` interface by implementing the `canActivate` function.
+这个类通过实现`canActivate`函数实现了`CanActivate`功能。
 
-When `canActivate` returns true, the user can activate the route. When `canActivate` returns false, the user cannot access the route. In the above example, we allow access when the user is logged in.
+当`canActivate`返回true时，用户可以激活路由。 当`canActivate`返回false时，用户无法访问路由。 在上面的例子中，我们允许用户登录时的访问。
 
-`canActivate` can also be used to notify the user that they can't access that part of the application, or redirect them to the login page.
+`canActivate`还可以用于通知用户他们无法访问应用程序的该部分，或将它们重定向到登录页面。
 
 [See Official Definition for CanActivate](https://angular.io/docs/ts/latest/api/router/index/CanActivate-interface.html)
 
-## Implementing CanDeactivate
+## 实现 CanDeactivate
 
-`CanDeactivate` works in a similar way to `CanActivate` but there are some important differences. The `canDeactivate` function passes the component being deactivated as an argument to the function:
+`CanDeactivate`的工作方式与`CanActivate`类似，但有一些重要的区别。 `canDeactivate`函数将被禁用的组件作为参数传递给函数：
 
-```
+```typescript
 export interface CanDeactivate<T> {
   canDeactivate(component: T, route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
       Observable<boolean>|Promise<boolean>|boolean;
 }
-
 ```
 
-We can use that component to determine whether the user can deactivate.
+我们可以使用该组件来确定用户是否可以停用。
 
-```
+```typescript
 import { CanDeactivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AccountPage } from './account-page';
@@ -94,22 +91,20 @@ export class SaveFormsGuard implements CanDeactivate<AccountPage> {
   }
 
 }
-
 ```
 
 [See Official Definition for CanDeactivate](https://angular.io/docs/ts/latest/api/router/index/CanDeactivate-interface.html)
 
-## Async Route Guards
+## 异步路由哨兵
 
-The `canActivate` and `canDeactivate` functions can either return values of type `boolean`, or `Observable` (an Observable that resolves to `boolean`). If you need to do an asynchronous request (like a server request) to determine whether the user can navigate to or away from the route, you can simply return an `Observable`. The router will wait until it is resolved and use that value to determine access.
+`canActivate`和`canDeactivate`函数可以返回`boolean`类型的值，也可以返回`Observable <boolean>`（一个可解析为boolean的Observable）的值。 如果你需要做一个异步请求（如服务器请求）来确定用户是否可以导航到或离开路由，你可以简单地返回一个`Observable <boolean>`。 路由将等待，直到它被解决并且使用该值来决定是否可以访问。
 
-For example, when the user navigates away you could have a dialog service ask the user to confirm the navigation. The dialog service returns an `Observable` which resolves to true if the user clicks 'OK', or false if user clicks 'Cancel'.
+例如，当用户导航离开时，您可以有一个对话服务请求用户确认导航。 对话服务返回一个`Observable <boolean>`，如果用户单击“确定”，该值将解析为true，如果用户单击“取消”，则该值将为false。
 
-```
+```typescript
   canDeactivate() {
     return dialogService.confirm('Discard unsaved changes?');
   }
-
 ```
 
 [View Example](http://plnkr.co/edit/w1NCkGs0Tv5TjivYMdvt?p=preview)

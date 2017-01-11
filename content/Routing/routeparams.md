@@ -1,6 +1,6 @@
 # 使用路由参数
 
-假设我们正在创建一个显示产品列表的应用程序。当用户点击列表中的产品时，我们要显示一个页面，显示该产品的详细信息。为此，您必须：
+假设我们正在创建一个显示产品列表的应用程序。当用户点击列表中的产品时，我们要显示一个页面，显示该产品的详细信息。为此你必须：
 
 - 添加路由参数ID
 - 将路由链接到参数
@@ -8,7 +8,7 @@
 
 ## 声明路由参数
 
-显示特定产品详细信息的组件的路由需要该产品ID的路由参数。我们可以使用以下`Router`实现此：
+显示特定产品详细信息的组件的路由需要该产品ID的路由参数。我们可以使用以下`Router`实现：
 
 ```typescript
 export const routes: Routes = [
@@ -18,11 +18,11 @@ export const routes: Routes = [
 ];
 ```
 
-注意：产品 - 详细信息路由的路径中的id，它将参数放在路径中。例如，要查看ID为5的产品的产品详细信息页面，必须使用以下URL：`localhost:3000/product-details/5`
+注意：`product-details`路由的路径中的`:id` ，它将参数放在路径中。例如，要查看ID为5的产品的产品详细信息页面，必须使用以下URL：`localhost:3000/product-details/5`
 
 ## 链接到带参数的路由
 
-在`ProductList`组件中，您可以通过ID显示产品列表。每个产品都有一个链接到产品 - 细节路线：
+在`ProductList`组件中，您可以通过ID显示产品列表。每个产品都有一个链接到`product-details`的路由：
 
 ```html
 <a *ngFor="let product of products"
@@ -41,9 +41,7 @@ goToProductDetails(id) {
 
 ## 读取路由参数
 
-`ProductDetails`组件必须读取参数，然后根据参数中给出的ID加载产品。 `ActivatedRoute`服务提供了一个`params` Observable，我们可以订阅它来获取路由参数（见 [Observables](https://angular-2-training-book.rangle.io/handout/observables/)）。
-
-​	
+`ProductDetails`组件必须读取参数，然后根据参数中给出的ID加载产品。 `ActivatedRoute`服务提供了一个`params` Observable，我们可以订阅它来获取路由参数（见 [Observables](https://angular-2-training-book.rangle.io/handout/observables/)）。​
 
 ```typescript
 import { Component, OnInit, OnDestroy } from '@angular/core';

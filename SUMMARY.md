@@ -29,7 +29,6 @@
         * [属性装饰器](content/ES6&TypeScript/typescript/property_decorators.md)
         * [类装饰器](content/ES6&TypeScript/typescript/class_decorators.md)
         * [参数装饰器](content/ES6&TypeScript/typescript/parameter_decorators.md)
-
 * [JavaScript工具链](content/tooling/tooling.md)
     * [源码控制：Git](content/tooling/source_control.md)
     * [命令行](content/tooling/the_command_line.md)
@@ -37,11 +36,9 @@
     * [后端代码共享和分发：npm](content/tooling/back_end_code_sharing_and_distribution.md)
     * [模块加载，打包和构建任务：Webpack](content/tooling/module_loading_bundling_and_build_tasks.md)
     * [Chrome](content/tooling/chrome.md)
-
 * [引导Angular 2应用程序](content/bootstrapping/bootstrapping.md)
     * [了解文件结构](content/bootstrapping/file_structure.md)
     * [引导Providers](content/bootstrapping/bootstrapping_providers.md)
-
 * [Angular2中的组件](content/Components/components.md)
     * [创建组件](content/Components/creating_components.md)
     * [组件的应用程序结构](content/Components/app_structure_with_components.md)
@@ -52,7 +49,6 @@
     * [投影](content/Components/projection.md)
     * [使用组件构建应用程序](content/Components/structuring_applications_with_components.md)
     * [使用其他组件](content/Components/using_other_components.md)
-
 * [指令](content/Directives/directives.md)
     * [属性指令](content/Directives/attribute_directives.md)
         * [NgStyle指令](content/Directives/ng_style_directive.md)
@@ -62,13 +58,11 @@
         * [NgFor指令](content/Directives/ng_for_directive.md)
         * [NgSwitch指令](content/Directives/ng_switch_directives.md)
         * [使用多个结构指令](content/Directives/using_multiple_structural_directives.md)
-
 * [高级组件](content/advanced-components/advanced-components.md)
     * [组件生命周期](content/advanced-components/component_lifecycle.md)
     * [访问其他组件](content/advanced-components/access_child_components.md)
     * [封装视图](content/advanced-components/view_encapsulation.md)
     * [ElementRef](content/advanced-components/elementref.md)
-
 * [Observable](content/Observables/observables.md)
     * [使用Observable](content/Observables/using_observables.md)
     * [错误处理](content/Observables/error_handling.md)
@@ -78,7 +72,6 @@
     * [可观察数组操作](content/Observables/observables_array_operations.md)
     * [“冷” vs “热” Observable](content/Observables/cold_vs_hot_observables.md)
     * [总结](content/Observables/summary.md)
-
 * [Angular2依赖注入](content/Di/di.md)
     * [什么是DI？](content/Di/what_is_di.md)
     * [DI框架](content/Di/di_framework.md)
@@ -87,7 +80,6 @@
         * [类以外的注入🔨](content/Di/injection_beyond_classes.md)
         * [避免注入冲突: OpaqueToken](content/Di/avoiding_collisions_opaque_token.md)
         * [注入树](content/Di/the_injector_tree.md)
-
 * [Http](content/Http/http.md)
     * [发起请求](content/Http/making_requests.md)
     * [捕获拒绝](content/Http/catching-rejections.md)
@@ -96,7 +88,6 @@
         * [重试](content/Http/retry.md)
     * [用`flatMap`搜索](content/Http/search_with_flatmap.md)
     * [将请求转换为Promises](content/Http/requests_as_promises.md)
-
 * [变化检测](content/Change-detection/Change_Detection.md)
     * [Angular1与Angular2的变化检测策略](content/Change-detection/angular_1_vs_angular_2.md)
     * [变化检测如何工作](content/Change-detection/how_change_detection_works.md)
@@ -104,9 +95,7 @@
     * [变更检测策略：OnPush](content/Change-detection/change_detection_strategy_onpush.md)
     * [强制不变性](content/Change-detection/enforcing_immutability.md)
     * [其他资源](content/Change-detection/additional_resources.md)
-
 * [Zone.js](content/zone.md)
-
 * [Angular2进阶](content/Advanced-angular/advanced-angular.md)
     * [指令](content/Advanced-angular/directives.md)
         * [创建属性指令](content/Advanced-angular/creating_an_attribute_directive.md)
@@ -118,7 +107,6 @@
     * [AoT](content/Advanced-angular/aot.md)
         * [AoT局限](content/Advanced-angular/aot_limitations.md)
         * [AoT配置](content/Advanced-angular/aot_config.md)
-
 * [Immutable.js](content/Immutable/immutable.md)
     * [什么是不可变性？](content/Immutable/what_is_immutability.md)
     * [不变性的应用场景](content/Immutable/the_case_for_immutability.md)
@@ -134,12 +122,10 @@
         * [Immutable.List](content/Immutable/lists.md)
         * [性能和瞬态变化](content/Immutable/performance-transient-changes.md)
         * [官方文件](content/Immutable/official-documentation.md)
-
 * [管道](content/Pipes/pipes.md)
     * [使用管道](content/Pipes/using_pipes.md)
     * [自定义管道](content/Pipes/custom_pipes.md)
     * [状态管道](content/Pipes/stateful_and_async_pipes.md)
-
 * [表单](content/Form/form.md)
     * [入门](content/Form/getting-started.md)
     * [模板驱动的表单](content/Form/template-driven_forms.md)
@@ -151,7 +137,6 @@
         * [验证响应式表单](content/Form/reactive-forms_validation.md)
         * [自定义验证响应式表单](content/Form/reactive-forms_custom_validation.md)
     * [用户的视觉提示](content/Form/visual_cues_for_users.md)
-
 * [模块](content/Modules/modules.md)
     * [什么是Angular 2模块？](content/Modules/introduction.md)
     * [将组件、管道和服务添加到模块](content/Modules/multiple-elements.md)
@@ -161,7 +146,6 @@
     * [延迟加载和依赖注入树](content/Modules/lazy-load-di.md)
     * [共享模块和依赖注入](content/Modules/shared-modules-di.md)
     * [共享相同的依赖注入树](content/Modules/shared-di-tree.md)
-
 * [路由](content/Routing/routing.md)
     * [为什么选择路由？](content/Routing/why_routing.md)
     * [配置路由](content/Routing/config.md)
@@ -173,9 +157,14 @@
     * [控制对路由的访问](content/Routing/route_guards.md)
     * [将可选参数传递给路由](content/Routing/query_params.md)
     * [使用辅助路由](content/Routing/aux-routes.md)
-
 * [Redux 和 Ngrx](content/redux/redux.md)
-
+    * [回顾 Reducers 和纯函数](content/redux/review_of_reducers_and_pure_functions.md)
+    * [Reducers as State Management](https://angular-2-training-book.rangle.io/handout/redux/reducers_as_state_management.html)
+    * [Redux Actions](https://angular-2-training-book.rangle.io/handout/redux/redux_actions.html)
+    * [Configuring your Application to use Redux](https://angular-2-training-book.rangle.io/handout/redux/configuring_your_application_to_use_redux.html)
+    * [Using Redux with Components](https://angular-2-training-book.rangle.io/handout/redux/using_redux_with_components.html)
+    * [Redux and Component Architecture](https://angular-2-training-book.rangle.io/handout/redux/redux_and_component_architecture.html)
+    * [Getting More From Redux and Ngrx](https://angular-2-training-book.rangle.io/handout/redux/getting_more_from_redux_and_ngrx.html)
 * [TDD测试](content/Testing/testing.md)
     * [测试工具链](content/Testing/toolchain.md)
     * [测试设置](content/Testing/setup.md)
@@ -204,9 +193,7 @@
         * [测试复杂的Action](content/Testing/complex-actions.md)
         * [测试Reducers](content/Testing/reducers.md)
         * [Afterthoughts](content/Testing/after-thoughts.md)
-
 * [将Angular1.x项目迁移到Angular 2](content/migrate/migrate.md)
-
 * [项目设置](content/Project-setup/project-setup.md)
     * [Webpack](content/Project-setup/webpack.md)
         * [安装和使用](content/Project-setup/project-setup.md)
@@ -214,7 +201,6 @@
         * [插件](content/Project-setup/plugins.md)
         * [概要](content/Project-setup/summary.md)
     * [NPM脚本集成](content/Project-setup/npm_scripts_integration.md)
-
 * [Angular CLI](content/Angular-CLI/cli.md)
     * [创建](content/Angular-CLI/setup.md)
     * [创建新应用程序](content/Angular-CLI/creating-an-app.md)
@@ -227,10 +213,8 @@
     * [CLI命令概述](content/Angular-CLI/command-overview.md)
     * [添加第三方库](content/Angular-CLI/adding-third-party-libraries.md)
     * [集成现有应用程序](content/Angular-CLI/init.md)
-
 * [Angular2中的无障碍](content/a11y/a11y.md)
     * [为什么需要无障碍](content/a11y/why-a11y.md)
-
 * [Angular2中的国际化](content/i18n/i18n.md)
     * [过程什么样的，如何参与？](content/i18n/process-and-roles.md)
     * [在我们的模板中标记文字](content/i18n/marking-text-in-templates.md)
@@ -238,6 +222,5 @@
     * [如何导入已完成的翻译文件](content/i18n/import-translation-files.md)
         * [使用AoT编译器](content/i18n/import-using-aot.md)
         * [使用JiT编译器](content/i18n/import-using-jit.md)
-
 * [词汇表](content/glossary.md)
 * [进一步阅读和参考](content/further-reading.md)

@@ -1,11 +1,12 @@
 # 传递可选参数
 
 查询参数允许您将可选参数传递到路由，例如分页信息。
-例如，在具有分页列表的路线上，网址可能如下所示，表示我们已加载第二个网页：
+
+例如，在具有分页列表的路由上，网址可能如下所示，表示我们已加载第二个网页：
 
 `localhost:3000/product-list?page=2`
 
-> T查询参数和路由参数之间的关键区别在于路由参数对于确定路由是必要的，而查询参数是可选的。
+> 查询参数和路由参数之间的关键区别在于[路由参数](https://angular-2-training-book.rangle.io/handout/routing/routeparams.html)对于确定路由是必要的，而查询参数是可选的。
 
 ## 传递查询参数
 
@@ -25,7 +26,7 @@
 
 ## 读取查询参数
 
-类似于读取 [路由参数](https://angular-2-training-book.rangle.io/handout/routing/routeparams.html)，Router服务返回一个Observable，我们可以订阅读取查询参数：
+类似于读取 [路由参数](https://angular-2-training-book.rangle.io/handout/routing/routeparams.html)，`Router`服务返回一个Observable，我们可以订阅读取查询参数：
 
 ```typescript
 import { Component } from '@angular/core';

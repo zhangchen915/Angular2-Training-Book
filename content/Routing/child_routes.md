@@ -12,9 +12,9 @@
 
 `localhost:3000/product-details/3/specs`
 
-`overview` and `specs` are child routes of `product-details/:id`. 它们只能在产品详细信息中找到。
+`overview` 和 `specs` 作为 `product-details/:id`的子路由。 它们只能在产品详细信息中找到。
 
-Our `Routes` with children would look like:
+我们的子 `Routes` 看起来像这样：
 
 ```typescript
 export const routes: Routes = [
@@ -30,9 +30,9 @@ export const routes: Routes = [
 ];
 ```
 
-Where would the components for these child routes be displayed? Just like we had a `` for the root application component, we would have a router outlet inside the `ProductDetails` component. The components corresponding to the child routes of `product-details`would be placed in the router outlet in `ProductDetails`.
+这些子路由的组件将显示在哪里？ 就像我们对于根应用程序组件有一个`<router-outlet> </ router-outlet>`，我们在`ProductDetails`组件中有一个路由出口。 对应于`product-details`的子路由的组件将被放置在`ProductDetails`中的路由出口。
 
-```
+```typescript
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -64,14 +64,13 @@ export default class ProductDetails implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 }
-
 ```
 
-Alternatively, we could specify `overview` route URL simply as:
+或者，我们可以将`overview`路由URL简单地指定为：
 
-`localhost:3000/product-details/3`
+`localhost:3000/product-details/`
 
-```
+```typescript
 export const routes: Routes = [
   { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductList },
@@ -82,22 +81,21 @@ export const routes: Routes = [
     ]
   }
 ];
-
 ```
 
-Since the `Overview` child route of `product-details` has an empty path, it will be loaded by default. The `specs` child route remains the same.
+由于`product-details` 的`Overview`子路由具有空路径，因此默认情况下将加载它。`specs`子路由保持不变。
 
 [View Example with child routes](https://plnkr.co/edit/UpHEteaI4Bypaf0AkD4B?p=preview)
 
 [View Example with route params & child routes](https://plnkr.co/edit/7SGuVQpkcTvj1CFct8rx?p=preview)
 
-> View examples running in full screen mode to see route changes in the URL.
+> 查看以全屏模式运行的示例，以查看URL变化。
 
-## Accessing a Parent's Route Parameters
+## 访问父路由的参数
 
-In the above example, say that the child routes of `product-details` needed the ID of the product to fetch the spec or overview information. The child route component can access the parent route's parameters as follows:
+在上述示例中，假设`product-details` 的子路由需要产品的ID以获取规范或概述信息。子路由组件可以访问父路由的参数，如下所示：
 
-```
+```typescript
 export default class Overview {
   parentRouteId: number;
   private sub: any;
@@ -117,16 +115,15 @@ export default class Overview {
     this.sub.unsubscribe();
   }
 }
-
 ```
 
 [View Example child routes accessing parent's route parameters](https://plnkr.co/edit/b0Knfv929tfRdsqpXHgP?p=preview)
 
-> View examples running in full screen mode to see route changes in the URL.
+> 查看以全屏模式运行的示例，以查看URL变化。
 
-## Links
+## 链接
 
-Routes can be prepended with `/`, or `../`; this tells Angular 2 where in the route tree to link to.
+路由可以使用`/`，或`../`;这告诉Angular 2在路由树链接到哪里。
 
 | Prefix | Looks in                          |
 | ------ | --------------------------------- |
@@ -134,17 +131,16 @@ Routes can be prepended with `/`, or `../`; this tells Angular 2 where in the 
 | none   | Current component children routes |
 | `../`  | Current component parent routes   |
 
-Example:
+例如：
 
-```
+```html
 <a [routerLink]="['route-one']">Route One</a>
 <a [routerLink]="['../route-two']">Route Two</a>
 <a [routerLink]="['/route-three']">Route Three</a>
-
 ```
 
-In the above example, the link for route one links to a child of the current route. The link for route two links to a sibling of the current route. The link for route three links to a child of the root component (same as route one link if current route is root component).
+在上面的例子中，路由一链接到当前路由的子节点。 路由二链接到当前路由的兄弟。 路由三链接到根组件的子节点（如果当前路由是根组件，则与路由一等效）。
 
 [View Example with linking throughout route tree](https://plnkr.co/edit/HX9LFuysyKmxAngv1nN3?p=preview)
 
-> View examples running in full screen mode to see route changes in the URL.
+> 查看以全屏模式运行的示例，以查看URL变化。
