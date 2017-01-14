@@ -1,21 +1,21 @@
-# Redux and Component Architecture
+# Redux和组件架构
 
-In the above example, our `counter` component is a smart component. It knows about Redux, the structure of the state and the actions it needs to call. In theory you can drop this component into any area of your application and just let it work. But it will be tightly bound to that specific slice of state and those specific actions. For example, what if we wanted to have multiple counters tracking different things on the page? For example, counting the number of red clicks vs blue clicks.
+在上面的例子中，我们的`counter` 组件是一个智能组件。 它知道Redux，state的结构和它需要调用的动作。 理论上，你可以把这个组件放到你的应用程序的任何区域，只是让它工作。 但它将紧紧绑定到那个特定的状态切片和那些具体的动作。 例如，如果我们想要多个计数器跟踪页面上的不同内容怎么办？ 例如，计算红色点击次数与蓝色点击次数。
 
-To help make components more generic and reusable, it's worth trying to separate them into *container* components and *presentational* components.
+为了帮助组件更通用和可重用，值得尝试将它们分成*容器*组件和*演示*组件。
 
-|                | Container Components      | Presentational Components                |
+|                | 容器组件                      | 演示组件                                     |
 | -------------- | ------------------------- | ---------------------------------------- |
 | Location       | Top level, route handlers | Middle and leaf components               |
 | Aware of Redux | Yes                       | No                                       |
 | To read data   | Subscribe to Redux state  | Read state from @Input properties        |
 | To change data | Dispatch Redux actions    | Invoke callbacks from @Output properties |
 
-[redux docs](http://redux.js.org/docs/basics/UsageWithReact.html)
+[redux docs](http://redux.js.org/docs/basics/UsageWithReact.html).
 
-Keeping this in mind, let's refactor our `counter` to be a *presentational* component. First, let's modify our `app-container` to have two counter components on it as we currently have it.
+记住这一点，让我们重构我们的 `counter` 是一个演示组件。 首先，让我们修改我们的`app-container`，在它上面有两个计数器组件，就像我们现在有的一样。
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -35,22 +35,21 @@ import { Component } from '@angular/core';
   `
 })
 export class SimpleRedux {}
-
 ```
 
 [View Example](https://plnkr.co/edit/w9qg7UklSryt4ujmCpTy?p=preview)
 
-As you can see in the example, when clicking on the buttons the numbers in both components will update in sync. This is because the counter component is coupled to a specific piece of state and action.
+如您在示例中可以看到的，当单击按钮时，两个组件中的数字将同步更新。 这是因为计数器组件耦合到特定的状态和动作。
 
-Looking at the example, you can see that there is already an *app/reducers/curse-reducer.ts* and *app/actions-curse-actions.ts*. They are pretty much the same as the counter actions and counter reducer, we just wanted to create a new reducer to hold the state of it.
+看看这个例子，你可以看到已经有一个 *app/reducers/curse-reducer.ts* 和 *app/actions-curse-actions.ts*。 它们几乎与计数器动作和计数器reducer相同，我们只是想创建一个新的reducer来保持它的状态。
 
-To turn the counter component from a smart component into a dumb component, we need to change it to have data and callbacks passed down into it. For this, we will pass the data into the component using `@Input`properties, and the action callbacks as `@Output` properties.
+要将计数器组件从智能组件转换为哑组件，我们需要更改它以将数据和回调传递到其中。 为此，我们将使用`@Inputproperties`将数据传递到组件中，并将操作回调作为`@Output`属性。
 
-We now have a nicely-reusable presentational component with no knowledge of Redux or our application state.
+我们现在有一个很好的可重用的演示组件，它不知道Redux或我们的应用程序状态。
 
 *app/components/counter-component.ts*
 
-```
+```typescript
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -73,14 +72,13 @@ export class Counter {
   @Output() incrementIfOdd = new EventEmitter<void>();
   @Output() incrementAsync = new EventEmitter<void>();
 }
-
 ```
 
-Next, let's modify the main app container to hook up these inputs and outputs to the template.
+接下来，让我们修改主应用的容器，将这些输入和输出连接到模板。
 
 `@Component` *app/src/containers/app-containter.ts*
 
-```
+```typescript
 @Component({
   selector: 'simple-redux',
   providers: [ CounterActions, CurseActions ],
@@ -108,14 +106,13 @@ Next, let's modify the main app container to hook up these inputs and outputs to
   </div>
     `
 })
-
 ```
 
-At this point, the template is attempting to call actions on our two ActionCreatorServices, `CounterActions`and `CurseActions`; we just need to hook those up using Dependency Injection:
+此时，模板正在尝试调用我们的两个ActionCreatorServices，`CounterActions`和`CurseActions`上的操作; 我们只需要使用依赖注入来住它们：
 
 *app/src/containers/app-container.ts*
 
-```
+```typescript
 import { Component, View, Inject, OnDestroy, OnInit } from '@angular/core';
 import { select } from 'ng2-redux';
 import { Observable } from 'rxjs';
@@ -132,9 +129,8 @@ export class SimpleRedux {
     public curseActions: CurseActions) {
     }
 }
-
 ```
 
 [View Ng2-Redux Example](https://plnkr.co/edit/Ci7RDJPIcu43AD3zSZ1O?p=preview) [View Ngrx Example](https://plnkr.co/edit/2FraZ1rGDVoamX1Qtwv6?p=preview)
 
-Our two `Observable`s, `counter$` and `curse$`, will now get updated with a new value every time the relevant store properties are updated by the rest of the system.
+我们的两个`Observable`， `counter$` 和 `curse$` ，现在将在每次相关store属性由系统的其余部分更新时使用新值更新。
