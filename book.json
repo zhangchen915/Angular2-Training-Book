@@ -1,5 +1,5 @@
 {
-    "plugins": ["ga","book-summary-scroll-position-saver","search"],
+    "plugins": ["ga","book-summary-scroll-position-saver","-search"],
     "pluginsConfig": {
         "ga": {
             "token": "UA-85094676-2"
