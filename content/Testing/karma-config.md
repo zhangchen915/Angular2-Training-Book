@@ -102,7 +102,7 @@ In angular2-redux-starter this process is done with webpack, so we explicitly in
 
 ### webpack
 
-```
+```js
  webpack: {
   plugins,
   entry: './src/tests.entry.ts',
@@ -122,14 +122,13 @@ In angular2-redux-starter this process is done with webpack, so we explicitly in
 webpackServer: {
   noInfo: true, // prevent console spamming when running in Karma!
 }
-
 ```
 
 If the project uses webpack, then the property `webpack` in the Karma configuration object is where we can configure webpack with Karma. In the angular2-redux-starter, plugins and loaders are exported from their own files to be imported by both the webpack config and the karma config, making the configuration object smaller.
 
 Using webpack, we can configure how to bundle our unit tests; that is, whether to pack all tests into a single bundle, or each unit test in its own bundle, etc. Regardless, unit tests should not be bundled with the rest of the applications code (especially in production!). In angular2-redux-starter we have opted to bundle all unit tests together.
 
-### coverageReporters and reporters
+### coverageReporters 和 reporters
 
 ```
 reporters: ['spec']
@@ -152,14 +151,13 @@ coverageReporter: {
     return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
   },
 },
-
 ```
 
-`coverageReporter` is used to configure the output of results of our code coverage tool (our toolchain uses Istanbul). Here we have specified to output the results in JSON and HTML. Reports will appear in the *coverage/* folder.
+`coverageReporter`用于配置我们的代码覆盖率工具（我们的工具链使用伊斯坦布尔）的结果输出。 这里我们指定以JSON和HTML格式输出结果。 报告将显示在*coverage/*文件夹中。
 
-`reporters` is a list of reporters to use in the test cycle. Reporters can be thought of as modular tools used to report on some aspect of the testing routine outside of the core unit tests. Code coverage is an example of a reporter - we want it to report on how much of our code is being tested. [There are many more reporters available for Karma](https://www.npmjs.com/browse/keyword/karma-reporter) that can aid in crafting your testing workflow.
+`reporters` 是在测试循环中使用的 reporters 的列表。 `reporters` 可以被认为是用于报告核心单元测试之外的测试例程的某些方面的模块化工具。 代码覆盖是`reporters` 的一个例子 - 我们希望它报告我们的代码有多少被测试。 [有更多的 reporters 可用于Karma](https://www.npmjs.com/browse/keyword/karma-reporter)，可以帮助制定您的测试工作流。
 
-### Environment configuration
+### 环境配置
 
 ```
 port: 9999,
@@ -168,17 +166,16 @@ colors: true,
 logLevel: config.LOG_INFO,
 autoWatch: true,
 captureTimeout: 6000,
-
 ```
 
-`port`, `browsers` and `singleRun` configure the environment our unit tests will run under. The `browsers`property specifies which browser we want Karma to launch and capture output from. We can use Chrome, Firefox, Safari, IE or Opera (requires additional Karma launcher to be installed for each respective browser). For a browser-less DOM instance we can use PhantomJS (as outlined in the toolchain section).
+`port`, `browsers` 和`singleRun` 配置我们的单元测试将运行的环境。 `browsers`属性指定了我们希望Karma启动和捕获输出的浏览器。 我们可以使用Chrome，Firefox，Safari，IE或Opera（需要为每个浏览器安装额外的Karma启动器）。 对于无浏览器的DOM实例，我们可以使用PhantomJS（如工具链部分中所述）。
 
-We can also manually capture output from a browser by navigating to `http://localhost:port`, where port is the number specified in the `port` property (the default value is 9876 if not specified). The property `singleRun` controls how Karma executes, if set to `true`, Karma will start, launch configured browsers, run tests and then exit with a code of either `0` or `1` depending on whether or not all tests passed.
+我们还可以通过浏览到`http://localhost:port`手动捕获浏览器的输出，其中port是port属性中指定的数字（如果未指定，则默认值为9876）。 属性`singleRun`控制Karma如何执行，如果设置为`true`，Karma将启动配置的浏览器，运行测试，然后退出`0`或`1` ，这取决于是否所有测试通过。
 
-## Completed Configuration
+## 完成配置
 
-The net result of customizing all of these proprties is the [*karma.conf.js* file in angular-redux-starter](https://github.com/rangle/angular2-redux-example/blob/master/karma.conf.js).
+定制所有这些属性的最终结果是在[angular-redux-starter中的karma.conf.js文件](https://github.com/rangle/angular2-redux-example/blob/master/karma.conf.js)。
 
-## Additional Resources
+## 其他资源
 
-This is just a sample of the core properties in *karma.conf.js* being used by angular2-redux-starter project. There are many more properties that can be used to extend and configure the functionality of Karma - [take a look at the official documentation for the full API breakdown](http://karma-runner.github.io/0.13/config/configuration-file.html).
+这只是angular2-redux-starter项目使用的karma.conf.js中的核心属性的示例。 还有更多的属性可以用于扩展和配置Karma的功能 - [ 看看完整的官方API文档](http://karma-runner.github.io/0.13/config/configuration-file.html)。

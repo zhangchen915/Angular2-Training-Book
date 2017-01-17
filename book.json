@@ -1,5 +1,5 @@
 {
-    "plugins": ["ga","book-summary-scroll-position-saver","-search","search-pro","github","splitter","toggle-chapters","tbfed-pagefooter"],
+    "plugins": ["ga","book-summary-scroll-position-saver","-search","search-pro","github","splitter","toggle2","tbfed-pagefooter"],
     "pluginsConfig": {
         "ga": {
             "token": "UA-85094676-2"
