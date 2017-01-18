@@ -1,16 +1,11 @@
 {
-    "plugins": ["ga","book-summary-scroll-position-saver","-search","search-pro","github","splitter","toggle2","tbfed-pagefooter"],
+    "plugins": ["ga","book-summary-scroll-position-saver","splitter","toggle2"],
     "pluginsConfig": {
         "ga": {
             "token": "UA-85094676-2"
         },
         "github": {
             "url": "https://github.com/zhangchen915/Angular2-Training-Book"
-        },
-        "tbfed-pagefooter": {
-	        "copyright":"Copyright &copy 2017",
-	        "modify_label": "该页面修订时间：",
-	        "modify_format": "YYYY-MM-DD HH:mm:ss"
         }
     }
 }
