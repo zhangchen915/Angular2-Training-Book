@@ -1,7 +1,5 @@
 # 验证方法和属性
 
-We can test the properties and methods of simple Angular 2 components fairly easily - after all, Angular 2 components are simple classes that we can create and interface with. Say we had a simple component that kept a defined message displayed. The contents of the message may be changed through the `setMessage` function, and the `clearMessage` function would put an empty message in place. This is a very trivial component but how would we test it?
-
 我们可以相当容易地测试简单Angular 2组件的属性和方法 - 毕竟，Angular 2组件是我们可以创建和接口的简单类。 说我们有一个简单的组件，保持显示一个定义的消息。 消息的内容可以通过`setMessage`函数改变，而`clearMessage`函数将会设置一个空消息。 这是一个非常小的组件，但我们将如何测试呢？
 
 *message.component.ts*

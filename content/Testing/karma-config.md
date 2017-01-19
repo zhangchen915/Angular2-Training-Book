@@ -81,7 +81,7 @@ testContext.keys().forEach(testContext);
 
 ```
 
-### preprocessors
+### 预处理器
 
 ```
 preprocessors: {
@@ -93,12 +93,11 @@ preprocessors: {
     'sourcemap',
   ],
 }
-
 ```
 
-`preprocessors` allow for some operation to be performed on the contents of a unit testing file before it is executed. These operations are carried out through the use of Karma plugins and are often used for transpiling operations. Since we are writing unit tests in TypeScript, *.ts* files must be transpiled into plain Javascript in order to run in a browser-based environment.
+`preprocessors` 允许在单元测试文件的内容被执行之前对其执行一些操作。 这些操作通过使用Karma插件来执行，并且经常用于换行操作。 由于我们在TypeScript中编写单元测试，因此.ts文件必须转换为纯Javascript以便在基于浏览器的环境中运行。
 
-In angular2-redux-starter this process is done with webpack, so we explicitly invoke the `webpack`processor on all of our testing files (those ending with *.spec.ts*). We also load any source map files originating from transpilation through the `sourcemap` processor.
+在angular2-redux-starter中，这个过程是用`webpack`完成的，所以我们在所有的测试文件（以*.spec.ts*结尾的文件）上显式调用webpack处理器。 我们还加载源自源映射处理器的换代的任何`sourcemap`文件。
 
 ### webpack
 
@@ -124,13 +123,13 @@ webpackServer: {
 }
 ```
 
-If the project uses webpack, then the property `webpack` in the Karma configuration object is where we can configure webpack with Karma. In the angular2-redux-starter, plugins and loaders are exported from their own files to be imported by both the webpack config and the karma config, making the configuration object smaller.
+如果项目使用webpack，那么在Karma配置对象中的属性webpack是我们可以使用Karma配置webpack的位置。 在angular2-redux-starter中，插件和加载程序从它们自己的文件中导出，以便通过webpack config和karma config导入，使配置对象更小。
 
-Using webpack, we can configure how to bundle our unit tests; that is, whether to pack all tests into a single bundle, or each unit test in its own bundle, etc. Regardless, unit tests should not be bundled with the rest of the applications code (especially in production!). In angular2-redux-starter we have opted to bundle all unit tests together.
+使用webpack，我们可以配置如何捆绑我们的单元测试; 也就是说，是将所有测试打包到单个包中，还是将每个单元测试都包含在自己的包中等。无论如何，单元测试不应与其余应用程序代码捆绑在一起（尤其是在生产中！）。 在angular2-redux-starter中，我们选择将所有单元测试捆绑在一起。
 
 ### coverageReporters 和 reporters
 
-```
+```js
 reporters: ['spec']
   .concat(coverage)
   .concat(coverage.length > 0 ? ['karma-remap-istanbul'] : []),
