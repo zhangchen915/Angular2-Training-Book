@@ -185,7 +185,7 @@
         * [服务测试策略](content/Testing/strategies.md)
         * [测试HTTP请求](content/Testing/http.md)
             * [使用MockBackend](content/Testing/mockbackend.md)
-            * [替代模拟策略](content/Testing/alt-http-mocking.md)
+            * [替代HTTP Mock策略](content/Testing/alt-http-mocking.md)
             * [测试JSONP和XHR后端](content/Testing/json-xhr.md)
         * [异步执行测试](content/Testing/async-execution.md)
     * [测试Redux](content/Testing/redux.md)

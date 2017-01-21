@@ -1,4 +1,4 @@
-# 替代HTTP模拟策略
+# 替代HTTP Mock策略
 
 使用`MockBackend`的一个替代方法是创建我们自己的轻模拟。 这里我们创建一个对象，然后告诉TypeScript使用类型断言将其视为`Http` 。 然后我们为它的get方法创建一个监测器，并返回一个类似于真正的Http服务的observable 。
 

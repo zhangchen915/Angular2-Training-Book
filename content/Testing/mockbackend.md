@@ -1,11 +1,7 @@
 # 使用MockBackend测试HTTP请求
 
-To unit test our services, we don't want to make actual HTTP requests. To accomplish this, we need to mock out our HTTP services. Angular 2 provides us with a `MockBackend` class that can be configured to provide mock responses to our requests, without actually making a network request.
-
-The configured `MockBackend` can then be injected into HTTP, so any calls to the service, such as `http.get` will return our expected data, allowing us to test our service in isolation from real network traffic.
-
 要对我们的服务进行单元测试，我们不想发出实际的HTTP请求。 为了实现这一点，我们需要模拟我们的HTTP服务。 Angular 2为我们提供了一个`MockBackend`类，它可以被配置为提供对我们的请求的模拟响应，而不实际做出网络请求。
-然后可以将配置的`MockBackend`注入到HTTP中，因此对服务的任何调用（例如`http.get`）将返回我们预期的数据，从而允许我们与真实网络流量隔离测试我们的服务。
+然后可以将配置的`MockBackend`注入到HTTP中，因此对服务的任何调用（例如`http.get`）将返回我们预期的数据，从而允许我们隔离真实网络流量测试服务。
 
 *wikisearch.spec.ts*
 
@@ -114,6 +110,6 @@ describe('Wikipedia search service', () => {
 
 可以使用多个响应。假设您的服务有两个可能的GET请求 - 一个用于`/api/users`，另一个用于`/api/users/1`。这些请求中的每一个具有不同的对应的模拟数据集合。当通过`MockBackend`订阅接收新的连接时，您可以检查请求的是什么类型的URL，并使用任何一组模拟数据进行响应。
 
-最后，我们可以通过调用和订阅结果来测试`SearchWiki`服务的搜索方法。一旦我们的搜索过程完成，我们检查结果对象，看看它是否包含相同的数据，我们嘲笑到我们的后端。如果是，那么恭喜你，你的考试已经过去了。
+最后，我们可以通过调用和订阅结果来测试`SearchWiki`服务的搜索方法。一旦我们的搜索过程完成，我们检查结果对象，看看它是否包含相同的数据，我们mock到我们的后端。如果是，那么恭喜你，你的测试已经通过。
 
 在应该设置foo与1s延迟测试，你会注意到，我们调用`tick(1000)`模拟1秒的延迟。
