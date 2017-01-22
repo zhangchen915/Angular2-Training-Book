@@ -196,7 +196,7 @@
 * [将Angular1.x项目迁移到Angular 2](content/migrate/migrate.md)
 * [项目设置](content/Project-setup/project-setup.md)
     * [Webpack](content/Project-setup/webpack.md)
-        * [安装和使用](content/Project-setup/project-setup.md)
+        * [安装和使用](content/Project-setup/installation_and_usage.md)
         * [Loaders](content/Project-setup/loaders.md)
         * [插件](content/Project-setup/plugins.md)
         * [概要](content/Project-setup/summary.md)

@@ -38,7 +38,7 @@ const app = require('ts!tslint!./src/index.ts');
 这将运行typescript编译器，它遵循上面指定的配置设置。 我们希望能够处理其他文件，而不仅仅是TypeScript文件，所以我们需要指定一个加载器列表。 这是通过创建任务数组来完成的。
 此数组中指定的任务被链接。 如果文件匹配多个条件，则将按顺序使用每个任务处理它。
 
-```
+```js
 {
   ...
   module: {
@@ -57,7 +57,6 @@ const app = require('ts!tslint!./src/index.ts');
   }
   ...
 }
-
 ```
 
 每个任务都有一些配置选项：
@@ -69,117 +68,23 @@ const app = require('ts!tslint!./src/index.ts');
 
 ### Pre-Loaders
 
-The preLoaders array works just like the loaders array only it is a separate task chain that is executed before the loaders task chain.
+preLoaders数组的工作方式就像加载器数组一样，它是一个单独的任务链，在loader任务链之前执行。
 
-### Non JavaScript Assets
+### 非 JavaScript 资源
 
-Webpack also allows us to load non JavaScript assets such as: CSS, SVG, font files, etc. In order to attach these assets to our bundle we must require/import them within our app modules. For example:
+Webpack还允许我们加载非JavaScript资源，例如：CSS，SVG，字体文件等。为了将这些资源附加到我们的包中，我们必须在我们的应用程序模块中导入它们。 例如：
 
-```
+```js
 import './styles/style.css';
 
 // or
 
 const STYLES = require('./styles/style.css');
-
 ```
 
-### Other Commonly Used Loaders
+### 其他常用 Loaders
 
-TypeScript isn't core JavaScript so webpack needs a bit of extra help to parse the `.ts` files. It does this through the use of *loaders*. Loaders are a way of configuring how webpack transforms the outputs of specific files in our bundles. Our `ts-loader` package is handling this transformation for TypeScript files.
-
-## Inline
-
-Loaders can be configured – inline – when requiring/importing a module:
-
-```
-const app = require('ts!./src/index.ts');
-
-```
-
-The loader is specified by using the `!` character to separate the module reference and the loader that it will be run through. More than one loader can be used and those are separated with `!` in the same way. Loaders are executed right to left.
-
-```
-const app = require('ts!tslint!./src/index.ts');
-
-```
-
-> Although the packages are named `ts-loader`, `tslint-loader`, `style-loader`, we don't need to include the `-loader` part in our config.
-
-Be careful when configuring loaders this way – it couples implementation details of different stages of your application together so it might not be the right choice in a lot of cases.
-
-## Webpack Config
-
-The preferred method is to configure loaders through the `webpack.config.js` file. For example, the TypeScript loader task will look something like this:
-
-```
-{
-  test: /\.ts$/,
-  loader: 'ts-loader',
-  exclude: /node_modules/
-}
-
-```
-
-This runs the typescript compiler which respects our configuration settings as specified above. We want to be able to handle other files and not just TypeScript files, so we need to specify a list of loaders. This is done by creating an array of tasks.
-
-Tasks specified in this array are chained. If a file matches multiple conditions, it will be processed using each task in order.
-
-```
-{
-  ...
-  module: {
-    rules: [
-      { test: /\.ts$/, loader: 'tslint' },
-      { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ },
-      { test: /\.html$/, loader: 'raw' },
-      { test: /\.css$/, loader: 'style!css?sourceMap' },
-      { test: /\.svg/, loader: 'url' },
-      { test: /\.eot/, loader: 'url' },
-      { test: /\.woff/, loader: 'url' },
-      { test: /\.woff2/, loader: 'url' },
-      { test: /\.ttf/, loader: 'url' },
-    ],
-    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
-  }
-  ...
-}
-
-```
-
-Each task has a few configuration options:
-
-- *test* - The file path must match this condition to be handled. This is commonly used to test file extensions eg. `/\.ts$/`.
-- *loader* - The loaders that will be used to transform the input. This follows the syntax specified above.
-- *exclude* - The file path must not match this condition to be handled. This is commonly used to exclude file folders, e.g. `/node_modules/`.
-- *include* - The file path must match this condition to be handled. This is commonly used to include file folders. eg. `path.resolve(__dirname, 'app/src')`.
-
-### Pre-Loaders
-
-The preLoaders array works just like the loaders array only it is a separate task chain that is executed before the loaders task chain.
-
-### Non JavaScript Assets
-
-Webpack also allows us to load non JavaScript assets such as: CSS, SVG, font files, etc. In order to attach these assets to our bundle we must require/import them within our app modules. For example:
-
-```
-import './styles/style.css';
-
-// or
-
-const STYLES = require('./styles/style.css');
-
-```
-
-### Other Commonly Used Loaders
-
-- *raw-loader* - returns the file content as a string.
-- *url-loader* - returns a base64 encoded data URL if the file size is under a certain threshold, otherwise it just returns the file.
-- *css-loader* - resolves `@import` and `url` references in CSS files as modules.
-- *style-loader* - injects a style tag with the bundled CSS in the `` tag.Loaders
-
-
-- *raw-loader* - returns the file content as a string.
-- *url-loader* - returns a base64 encoded data URL if the file size is under a certain threshold, otherwise it just returns the file.
-- *css-loader* - resolves `@import` and `url` references in CSS files as modules.
-- *style-loader* - injects a style tag with the bundled CSS in the `` tag.
+- *raw-loader* - 以字符串形式返回文件内容。
+- *url-loader* - 如果文件大小低于某个阈值，则返回base64编码数据URL，否则只返回文件。
+- *css-loader* - 在CSS文件中将`@import`和`url`引用解析为模块。
+- *style-loader* - 在`<head>`标签中插入带有捆绑CSS的样式标签。
