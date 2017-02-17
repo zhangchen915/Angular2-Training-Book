@@ -41,7 +41,7 @@ function showMessage(data: string): void {
 }
 showMessage('hello');
 ```
-这说明在打字稿的基本类型，并表示结束`showMessage`的功能。在这个函数中的参数有时被检查特定类型的`tsc`运行。
+这说明在TypeScript的基本类型，并表示结束`showMessage`的功能。在这个函数中的参数有时被检查特定类型的`tsc`运行。
 在许多JavaScript函数中，函数采用可选参数是很常见的。TypeScript为此提供支持，如下所示：
 ```
 function logMessage(message: string, isDebug?: boolean) {

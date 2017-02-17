@@ -198,6 +198,8 @@
         * [升级到 Angular 1.3+ 风格](content/migrate/upgrade_to_angular_1_3.md)
         * [使用 Webpack](content/migrate/use_webpack.md)
         * [迁移到 TypeScript](content/migrate/migrate_to_typescript.md)
+    * [选择升级途径](content/migrate/choose_a_path.md)
+    * [避免全面转换](content/migrate/total_conversion.md)
 * [项目设置](content/Project-setup/project-setup.md)
     * [Webpack](content/Project-setup/webpack.md)
         * [安装和使用](content/Project-setup/installation_and_usage.md)
