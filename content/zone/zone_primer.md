@@ -2,9 +2,7 @@
 
 ## What?
 
-A JavaScript VM is embedded in a host environment, such as a browser or Node, which is responsible for scheduling JavaScript execution through tasks. A Zone is an execution context that persists across async tasks, and allows the creator of the zone to observe and control execution of the code within the zone. 
-
-JavaScript VM嵌入在主机环境中，例如浏览器或节点，负责通过任务调度JavaScript执行。 Zone 是跨越异步任务持续的执行上下文，并且允许 zone 的创建者观察和控制区域内的代码的执行。
+JavaScript VM嵌入在主机环境中，例如浏览器或节点，负责通过任务调度JavaScript执行。 Zone 是跨越异步任务持续的执行上下文，并且允许 zone 的创建者观察和控制 zone 内的代码的执行。
 
 zone 负责：
 
