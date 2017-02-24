@@ -5,9 +5,7 @@
 这是一个破例来说明这个问题。
 
 ```js
-// At design time it is not possible to know which zone will
-// be the parent zone. As a consequence, a parent zone has to
-// be passed into the constructor.
+// 在设计时，不可能知道哪个 zone 将是父 zone。 因此，父 zone 必须传递到构造函数中。
 class TimingZone extends Zone {
   constructor(parent) { super(parent, 'timingZone');}
   // We would like to intercept the run, and so we overwrite it.
@@ -26,9 +24,7 @@ class TimingZone extends Zone {
     console.log(this.name, 'Duration:', end - start);
   }
 }
-// At design time it is not possible to know which zone will
-// be the parent zone. As a consequence, a parent zone has to
-// be passed into the constructor.
+
 class LogZone extends Zone {
   constructor(parent) { super(parent, 'logZone');}
   run() {
@@ -59,7 +55,7 @@ logZone.run(() => {
 
 Here is what one would expect from the above example. Specifically the expectation is that the current zone inside the run block will be that of the logZone.
 
-这里是从上面的例子打印的实际
+这里是上面例子的输出
 
 ```js
 logZone enter
@@ -70,7 +66,7 @@ logZone leave
 
 ## 为什么标准工具不起作用
 
-拦截调用（super或父级）的标准方式不起作用的原因是父区域在设计时是未知的。 如果父区域在设计时间是已知的，那么我们可以这样写：
+拦截调用（super或父级）的标准方式不起作用的原因是父 zone 在设计时是未知的。 如果父 zone 在设计时间是已知的，那么我们可以这样写：
 
 ```js
 class TimingZone extends RootZone {
@@ -89,4 +85,9 @@ class LogZone extends TimingZone {
 }
 ```
 
-如果我们可以在设计时决定区域层次结构，`super.run()`的调用将按预期工作。 然而，因为父进程在运行时之前是未知的，所以我们需要将更改区域的行为与调用父钩子的行为分开。 为了解决这个问题，钩子被指定为fork（）的一部分，钩子接收一个父ZoneDelagate（只处理钩子）而不是一个父区域（这将导致一个区域改变）。
+如果我们可以在设计时决定 zone 的层次结构，`super.run()`的调用将按预期工作。 然而，因为父进程在运行时之前是未知的，所以我们需要将更改 zone 的行为与调用父钩子的行为分开。 为了解决这个问题，钩子被指定为fork() 的一部分，钩子接收一个父ZoneDelagate（只处理钩子）而不是一个父 zone （这将导致一个 zone 改变）。
+
+| Zone | ZoneDelegate | 描述                                       |
+| ---- | ------------ | ---------------------------------------- |
+| run  | invoke       | 当执行zone run()块时，调用invoke() ZoneDelegate钩子。 这允许在不改变当前 zone 的情况下委派钩子。 |
+| wrap | intercept    | 当zone wrap() 块被执行时，intercept() ZoneDelegate钩子被调用。 这允许委托钩子而不会重新包装回调。 |
