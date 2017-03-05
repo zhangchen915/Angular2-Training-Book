@@ -22,7 +22,7 @@ export class Counter {
 ```
 [查看示例](http://plnkr.co/edit/15wHrpea6GY7yLr7hl61?p=preview)
 
-要通过输出从组件发送数据，请先定义outputs属性。它接受组件向其父组件公开的输出参数的列表。
+要通过 outputs 从组件发送数据，请先定义outputs属性。它接受组件向其父组件公开的输出参数的列表。
 
 `app/counter.component.ts`
 
@@ -85,4 +85,4 @@ export class AppComponent implements OnChange {
 
 [查看示例](http://plnkr.co/edit/iwQePN?p=preview)
 
-一组输入+输出绑定定义组件的公共API。在我们的模板中，我们使用`[squareBrackets]`传递输入，使用（括号）来处理输出。
+一组 input + output 绑定定义组件的公共API。在我们的模板中，我们使用 [方括号] 传递输入，使用（括号）来处理输出。
