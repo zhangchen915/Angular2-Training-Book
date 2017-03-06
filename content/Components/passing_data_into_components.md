@@ -4,13 +4,13 @@
 `@Input()`装饰器定义了一组可以从父组件传递的参数。例如，我们可以修改`HelloComponent`组件，以便`name`可以由父提供。
 
 ```typescript
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'hello',
-  template: '<p>Hello, {{name}}</p>'
+  selector: 'rio-hello',
+  template: '<p>Hello, {{name}}!</p>',
 })
-export class Hello {
+export class HelloComponent {
   @Input() name: string;
 }
 ```
@@ -20,9 +20,9 @@ export class Hello {
 
 ```html
 <!-- 绑定到原始字符串 -->
-<hello name="World"></hello>
+<rio-hello name="World"></rio-hello>
 <!-- 绑定到父作用域 -->
-<hello [name]="name"></hello>
+<rio-hello [name]="helloName"></rio-hello>
 ```
 [查看示例](http://plnkr.co/edit/GbpCKy?p=preview)
 

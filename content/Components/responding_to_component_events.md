@@ -4,23 +4,23 @@ Angular 2中的事件与它们在Angular 1.x中的工作类似。最大的变化
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'counter',
+  selector: 'rio-counter',
   template: `
     <div>
-      <p>Count: {{ num }}</p>
+      <p>Count: {{num}}</p>
       <button (click)="increment()">Increment</button>
     </div>
   `
 })
-export class Counter {
-  num: number = 0;
+export class CounterComponent {
+  num = 0;
 
   increment() {
     this.num++;
   }
 }
 ```
-[查看示例](http://plnkr.co/edit/15wHrpea6GY7yLr7hl61?p=preview)
+[View Example](http://plnkr.co/edit/l4FweMxodN8I26OeqhGH?p=preview)
 
 要通过 outputs 从组件发送数据，请先定义outputs属性。它接受组件向其父组件公开的输出参数的列表。
 
@@ -83,6 +83,6 @@ export class AppComponent implements OnChange {
 </div>
 ```
 
-[查看示例](http://plnkr.co/edit/iwQePN?p=preview)
+[View Example](http://plnkr.co/edit/5RYLZ0?p=preview)
 
 一组 input + output 绑定定义组件的公共API。在我们的模板中，我们使用 [方括号] 传递输入，使用（括号）来处理输出。
