@@ -1,11 +1,12 @@
 #从模板访问子组件
 在我们的模板中，我们可能发现自己需要访问由我们用来构建自己的组件的子组件提供的值。
-最直接的例子可能是处理形式或输入：
 
-**app/app.component.html*
+最直接的例子可能是处理表单或输入：
+
+*app/app.component.html*
 
 ```html
-<section >
+<section>
   <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" ngModel>
@@ -35,7 +36,7 @@ export class AppComponent {
 
 [View Example](https://plnkr.co/edit/hfv5RC?p=preview)
 
-这不是一个只有形式或输入的神奇功能，而是一种引用模板中子组件实例的方法。使用该引用，您可以访问该组件的公共属性和方法。
+这不是一个只有表单或输入的神奇功能，而是一种引用模板中子组件实例的方法。使用该引用，您可以访问该组件的公共属性和方法。
 
 *app/app.component.html*
 

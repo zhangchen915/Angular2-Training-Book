@@ -1,13 +1,14 @@
 #使用双向数据绑定
-双向数据绑定结合的输入和输出结合到使用一个单一的符号ngModel指示。
+双向数据绑定使用`ngModel`指令将输入和输出绑定组合为单个符号。
+
 ```html
 <input [(ngModel)]="name" >
 ```
-这在幕后做的是什么等同于：
+它幕后做的相当于：
 ```html
 <input [ngModel]="name" (ngModelChange)="name=$event">
 ```
-要创建自己的组件，支持双向绑定，你必须定义一个@Output属性匹配@Input，但与它后缀Change，例如：
+要创建一个支持双向绑定的组件，你必须定义一个`@Output`属性匹配`@Input`，但后缀为`Change`，例如：
 
 `app/counter.component.ts`
 
@@ -41,4 +42,4 @@ export class CounterComponent {
 </div>
 ```
 
-[查看示例](http://plnkr.co/edit/nwRNxpoTuk4M60Y5Khq8?p=preview)
+[View Example](http://plnkr.co/edit/nkww1Ov2AWZRMHFyjhjl?p=preview)
