@@ -3,6 +3,7 @@
 * [简介](README.md)
 * [License](license.md)
 * [Why Angular 2?](content/why_angular_2.md)
+* [为什么不是React⚡️](content/vs_react.md)
 * [ES6和TypeScript的特点](content/ES6&TypeScript/ES6&TypeScript.md)
     * [ES6](content/ES6&TypeScript/es6/es6.md)
         * [Classes](content/ES6&TypeScript/es6/classes.md)
@@ -235,4 +236,5 @@
         * [使用AoT编译器](content/i18n/import-using-aot.md)
         * [使用JiT编译器](content/i18n/import-using-jit.md)
 * [词汇表](content/glossary.md)
+* [最佳实践与填坑的积累](content/practice.md)
 * [进一步阅读和参考](content/further-reading.md)

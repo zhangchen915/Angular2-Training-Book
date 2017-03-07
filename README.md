@@ -5,6 +5,8 @@
 **正在校对**
 **本人水平有限，错误在所难免，欢迎提出宝贵意见！**🎉🎉
 
+最近我在做一个 Angular2 的个人项目，所以我会在本书最后开辟一个章节来总结一些开发过程中的最佳实践和填过的坑，当然也欢迎大家分享自己遇到的问题，我们多多交流~
+
 如发现任何问题请到[这里](https://github.com/zhangchen915/Angular2-Training-Book/issues)提交issues
 
 ![](content/assets/book-cover.png)
