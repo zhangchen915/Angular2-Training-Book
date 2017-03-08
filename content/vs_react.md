@@ -3,7 +3,7 @@
 作者：Justin Goodhew
 [原文链接][1]
 
-![vs-react](assets\vs_react.png)
+![vs-react](assets\vs_react.jpeg)
 
 由于这在开发者社区中是一个非常有争议的话题，所以随着我们更深入的理解并结合收到的反馈，我们将不断更新这篇博客。我也想推出一些限定词，所以大家都明白我们来自哪里。
 
@@ -85,7 +85,7 @@ React —中断支持很快，保持更新是很困难的
 
 Angular 2 —Google公开支持时间和版本迭代安排：2.0版之后没有更多的突破性变化
 
-**可用性雇佣**
+**人力资源**
 
 React
 
@@ -114,14 +114,7 @@ Angular
 
 基于我们与React和Angular 2开发的经验以及客户的需求，我们决定使用Angular。 这并不意味着我们不能接受新的选择，但是现在，对于我们的客户，Angular符合他们的需求，我们对结果感到非常激动。
 
-我们知道有很多关于这个问题的意见，所以请随时让我们知道你选择了什么，为什么。 我们将深入探讨这两个框架中的调试和开发工具，以便更新。
-
-------
-
-[Biznas.io](https://biznas.io/)
-[Biznas on Twitter](https://twitter.com/biznasapps)
-[Biznas on Facebook](https://www.facebook.com/BiznasApps/)
-[Biznas on LinkedIn](https://www.linkedin.com/company/10871824?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10871824%2Cidx%3A2-1-2%2CtarId%3A1475705404220%2Ctas%3Abiznas)
+我们知道有很多关于这个问题的意见，所以请随时让我们知道你选择了什么，为什么。 我们将深入探讨这两个框架中的调试和开发工具，以便更新。](https://www.linkedin.com/company/10871824?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10871824%2Cidx%3A2-1-2%2CtarId%3A1475705404220%2Ctas%3Abiznas)
 
 
-  [1]: https://blog.biznas.io/why-we-chose-angular-2-over-react-for-our-enterprise-software-development-work-392e2c9e39a9
+[1]: https://blog.biznas.io/why-we-chose-angular-2-over-react-for-our-enterprise-software-development-work-392e2c9e39a9
