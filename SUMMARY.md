@@ -10,7 +10,7 @@
         * [回顾'this'](content/ES6&TypeScript/es6/refresher_on_this.md)
         * [箭头函数](content/ES6&TypeScript/es6/arrow_functions.md)
         * [模板字符串](content/ES6&TypeScript/es6/template_strings.md)
-        * [继承](content/ES6&TypeScript/es6/interfaces.md)
+        * [继承](content/ES6&TypeScript/es6/inheritance.md)
         * [委托](content/ES6&TypeScript/es6/delegation.md)
         * [常量和块作用域变量](content/ES6&TypeScript/es6/constants_and_block_scoped_variables.md)
         * [展开/剩余运算符](content/ES6&TypeScript/es6/spread_and_rest.md)
