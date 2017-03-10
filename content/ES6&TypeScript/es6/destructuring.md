@@ -1,6 +1,8 @@
-#解构赋值
+#解构
 解构是一种无需编写大量代码就能从`{}`或`[]`中快速提取数据的方式。
-从MDN借用，可以使用解构来转换以下内容：
+
+使用解构来转换以下内容（[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)中的例子）：
+
 ```js
 let foo = ['one', 'two', 'three'];
 
