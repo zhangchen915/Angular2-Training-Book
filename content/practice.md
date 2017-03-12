@@ -31,3 +31,16 @@ class RemoveHost {
 `<avatar [name]="hero.name" remove-host></avatar>`
 
 *来自[stackoverflow](http://stackoverflow.com/questions/34280475/remove-the-host-html-element-selectors-created-by-angular-component)*
+
+#### 2.判断`<ng-content>`为空
+
+Wrap `ng-content` in an HTML element like a `div` to get a local reference to it, then bind the `ngIf`expression to `ref.childNodes.length == 0`:
+
+```
+template: `<div #ref><ng-content></ng-content></div> 
+           <span *ngIf="ref.childNodes.length == 0">
+              Display this if ng-content is empty!
+           </span>`
+```
+
+来自[stackoverflow](http://stackoverflow.com/questions/35107211/in-angular-2-how-to-check-whether-ng-content-is-empty)
