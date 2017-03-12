@@ -26,6 +26,7 @@
         * [接口](content/ES6&TypeScript/typescript/interfaces.md)
         * [Shapes](content/ES6&TypeScript/typescript/shapes.md)
         * [类型推断](content/ES6&TypeScript/typescript/type_inference.md)
+        * [类型关键字](content/ES6&TypeScript/typescript/type_keyword.md)
         * [装饰器](content/ES6&TypeScript/typescript/decorators.md)
         * [属性装饰器](content/ES6&TypeScript/typescript/property_decorators.md)
         * [类装饰器](content/ES6&TypeScript/typescript/class_decorators.md)
