@@ -114,7 +114,7 @@ Angular
 
 基于我们与React和Angular 2开发的经验以及客户的需求，我们决定使用Angular。 这并不意味着我们不能接受新的选择，但是现在，对于我们的客户，Angular符合他们的需求，我们对结果感到非常激动。
 
-我们知道有很多关于这个问题的意见，所以请随时让我们知道你选择了什么，为什么。 我们将深入探讨这两个框架中的调试和开发工具，以便更新。](https://www.linkedin.com/company/10871824?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10871824%2Cidx%3A2-1-2%2CtarId%3A1475705404220%2Ctas%3Abiznas)
+我们知道有很多关于这个问题的意见，所以请随时让我们知道你选择了什么，为什么。 我们将深入探讨这两个框架中的调试和开发工具，以便更新。
 
 
 [1]: https://blog.biznas.io/why-we-chose-angular-2-over-react-for-our-enterprise-software-development-work-392e2c9e39a9

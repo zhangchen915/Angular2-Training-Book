@@ -19,7 +19,7 @@
     * [TypeScript](content/ES6&TypeScript/typescript/typeScript.md)
         * [TypeScript入门](content/ES6&TypeScript/typescript/typeScript_start.md)
         * [使用 tsc](content/ES6&TypeScript/typescript/working_with_tsc.md)
-        * [类型](content/ES6&TypeScript/typescript/typings.md)
+        * [类型⚡️](content/ES6&TypeScript/typescript/typings.md)
         * [Linting](content/ES6&TypeScript/typescript/linting.md)
         * [TypeScript特性](content/ES6&TypeScript/typescript/typescript_features.md)
         * [TypeScript类](content/ES6&TypeScript/typescript/typescript_classes.md)
