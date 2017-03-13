@@ -2,6 +2,7 @@
 
 * [简介](README.md)
 * [License](license.md)
+* [TODO](content/TODO.md)
 * [Why Angular 2?](content/why_angular_2.md)
 * [为什么不是React⚡️](content/vs_react.md)
 * [ES6和TypeScript的特点](content/ES6&TypeScript/ES6&TypeScript.md)
