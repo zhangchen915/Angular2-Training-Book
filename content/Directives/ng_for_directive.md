@@ -51,6 +51,8 @@ export class AppComponent {
 * last - 如果当前项是可迭代中的最后一个项，则为true
 * even - 如果当前索引为偶数，则为true
 * odd - 如果当前索引是奇数，则为true
+
+
 ```typescript
 @Component({
   selector: 'app',
