@@ -15,3 +15,5 @@ why TypeScript【-】高优
 核心概念与架构【-】高优
 
 Observable【100%】须在原文基础增加
+
+bable vs ts

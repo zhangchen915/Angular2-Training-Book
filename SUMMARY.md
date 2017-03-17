@@ -5,6 +5,7 @@
 * [TODO](content/TODO.md)
 * [Why Angular 2?](content/why_angular_2.md)
 * [为什么不是React⚡️](content/vs_react.md)
+* [聊聊技术选型-Angular2 vs Vue2⚡️](content/vs_vue2.md)
 * [ES6和TypeScript的特点](content/ES6&TypeScript/ES6&TypeScript.md)
     * [ES6](content/ES6&TypeScript/es6/es6.md)
         * [Classes](content/ES6&TypeScript/es6/classes.md)
