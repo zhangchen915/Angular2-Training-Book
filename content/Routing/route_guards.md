@@ -1,10 +1,18 @@
-# 控制对路由的访问
+# 路由拦截
 
 要控制用户是否可以导航到或离开指定路由，请使用路由哨兵。
 
 例如，我们可能希望一些路线只有在用户登录或接受条款和条件后才可访问。 我们可以使用路由哨兵来检查这些条件并控制对路由的访问。
 
 路由哨兵还可以控制用户是否可以离开某个路由。 例如，假设用户已将信息键入页面上的表单，但尚未提交表单。 如果这时离开页面，他们将丢失信息。 如果用户尝试离开路由而不是提交或保存信息，我们可以提示用户。
+
+Angular 提供了五种路由拦截哨兵：
+
+- CanActive 激活拦截
+- CanActiveChild 控制是否允许激活子路由
+- CanDeactivate 反激活拦截
+- Resolve 数据预加载拦截
+- CanLoad 模块预加载拦截
 
 ## 在路由上注册路由哨兵
 
@@ -109,4 +117,4 @@ export class SaveFormsGuard implements CanDeactivate<AccountPage> {
 
 [View Example](http://plnkr.co/edit/w1NCkGs0Tv5TjivYMdvt?p=preview)
 
-[See Official Documentation for Route Guards](https://angular.io/docs/ts/latest/guide/router.html#!#guards)
+[查看官方文档](https://angular.cn/docs/ts/latest/guide/router.html#!#guards)
