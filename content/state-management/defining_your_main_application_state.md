@@ -1,23 +1,23 @@
-# 定义你的主应用状态
+# 定义应用的主状态
 
-When building an application using Redux, the first thing to think about is, "What state do I want to store?" It is generally a good idea to capture all of the application's state so that it can be accessible from anywhere and all in one place for easy inspection.
+当使用Redux构建应用程序时，首先要考虑的是“我要存储什么状态”？ 捕获所有应用程序的状态通常是一个好主意，以便在任何地方都可以访问，而且都在同一位置方便检查。
 
-In the application state, we store things like:
+在应用程序state中，我们存储的东西如下：
 
-- Data received through API calls
-- User input
-- Presentation state, such as menu and button toggles
+- 通过调用API收到的数据
+- 用户输入
+- 视图状态，如菜单和按钮切换
 - Application preferences
-- Internationalization messages
-- Themes and other customizable areas of your application
+- 国际化信息
+- 主题和其他可定制的应用领域
 
-To define your application state, use an interface called `AppState` or `IAppState`, depending on the naming conventions used on your project.
+要定义应用程序的state，请使用名为`AppState`或`IAppState`的接口，这取决于项目中使用的命名约定。
 
-Here's an example:
+示例：
 
 *app/models/appState.ts*
 
-```
+```typescript
 export interface AppState {
   readonly colors: Colors;
   readonly localization: Localization;
@@ -28,4 +28,4 @@ export interface AppState {
 }
 ```
 
-> **Note:** We're using `readonly` to ensure compile-time immutability, and it provides the simplest immutable implementation without adding more dependencies to clutter the examples. However, feel free to use another approach on your project that makes sense for your team.
+> **注意：**我们使用readonly来确保编译时不可变性，并且它提供了最简单的不可变实现，而不增加更多的依赖性来混淆示例。 但是，您可以自由地选择其他方法。
