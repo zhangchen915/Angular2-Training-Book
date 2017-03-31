@@ -458,7 +458,7 @@ class TodoApp {}
 
 ------
 
-### 它很快!
+### 它很快！
 
 **所描述的模式不仅使Angular应用程序更容易组织和重构。 它也使它更加高效。** 这是因为当应用程序状态被存储为不可变的数据结构时，state 的变化被表示为observable，所以我们可以设置所有Angular 组件的OnPush策略。 要了解更多信息，请阅读[Angular, Immutability, and Ecapsulation](http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation)。
 

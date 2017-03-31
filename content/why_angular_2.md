@@ -51,9 +51,21 @@
 
 所以个人认为，性能并不会成为主要的选择依据，况且性能数据大家都比较接近。
 
- 
+### 体积
 
-最后，我想你可以放心的开始学习 Angular2 了🔥
+![](assets/bundle-size-chart.png)
+
+- 通过执行静态代码分析进行优化，更具体地说是tree-shaking。
+- 精简（包括混淆）。
+- gzip或brotli压缩。
+
+通过上述方法，我们可以轻松地将打包大小减少到140K左右！
+
+更多细节可以阅读[Building an Angular Application for Production](http://blog.mgechev.com/2016/06/26/tree-shaking-angular2-production-build-rollup-javascript/) 。
+
+
+
+我想现在你可以放心的开始学习 Angular2 了🔥
 
 ## Angular 2 的优点
 
