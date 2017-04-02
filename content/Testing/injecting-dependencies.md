@@ -97,7 +97,7 @@ describe('Testing Quote Component', () => {
 
 [View Example](http://plnkr.co/edit/7KZu1Yg6kBX7rksrpRHV?p=preview)
 
-测试QuoteComponent是一个相当简单的过程。我们想创建一个QuoteComponent，给它一个报价，看看它是否出现在DOM中。这个过程需要我们创建组件，传入任何依赖项，触发组件执行一个动作，然后查看DOM，看看动作是否是我们所期望的。
+测试`QuoteComponent`是一个相当简单的过程。我们想创建一个`QuoteComponent`，给它一个报价，看看它是否出现在DOM中。这个过程需要我们创建组件，传入任何依赖项，触发组件执行一个动作，然后查看DOM，看看动作是否是我们所期望的。
 
 让我们来看看上面的单元测试是如何实现的。
 
