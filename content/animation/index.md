@@ -7,27 +7,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 ```
 
-这些API被设计成 [CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations) and [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions)的接口，所以和CSS效果基本一致。
+这些API被设计成 [CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations) 和 [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions)的接口，所以和CSS效果基本一致。
 
-#### 导入
+更多内容请参考官方文档：https://angular.cn/guide/animations
 
-```js
-import {
-  trigger, // 动画封装触发，外部的触发器
-  state, // 转场状态控制
-  style,transition,animate,keyframes
-} from '@angular/animations';
-```
+⚡️大多数动画都能用等效的css来实现，如果比较简单的动画并不推荐使用动画库。这里举个单独提一下auto属性值计算的例子，这些元素直到运行时才会知道属性的值。这种情况用CSS很难解决了，所以angular提供了`*`属性值。他会在运行时计算属性的值，然后插入动画。
 
-
-
-是通过状态的转换完成的。
-
-####auto属性计算
-
-有些元素直到运行时才会知道维样式属性的值。这种情况用CSS很难解决，所以angular提供了`*`属性值。他会在运行时计算属性的值，然后插入动画。
-
-```Js
+```typescript
 animations: [
   trigger('shrinkOut', [
     state('in', style({height: '*'})),
