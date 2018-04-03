@@ -1,18 +1,17 @@
 #捕获和释放
 我们还可以选择使用`.catch`运算符。它允许我们捕获现有流上的错误，做一些事情然后传递异常。
 ```typescript
-import { Http } from '@angular/http';
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     return this.http.get('https://api.spotify.com/v1/dsds?q=' + term + '&type=artist')
-      .map((response) => response.json())
       .catch((e) => {
         return Observable.throw(
           new Error(`${ e.status } ${ e.statusText }`)
