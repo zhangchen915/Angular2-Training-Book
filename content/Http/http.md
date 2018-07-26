@@ -1,24 +1,26 @@
 #HTTP
-为了从我们的Angular应用程序开始进行HTTP调用，我们需要导入`angular/http`模块并注如HTTP服务。 它通过`HttpModule`和`JsonpModule`实现XHR和JSONP请求。 在本节中，我们将只关注`HttpModule`。
-
-#配置 angular/http
-为了使用各种HTTP服务，我们需要在根`NgModule`的`imports`中加入`HttpModule`。这将允许我们从应用程序中的任何地方访问HTTP服务。
+为了从我们的Angular应用程序开始进行HTTP调用，我们需要从`@angular/common/http`中导入 HTTP 模块。 
 
 ```typescript
-...
-import { MyApp } from './app.component'
-import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [SearchService],
-  declarations: [MyApp],
-  bootstrap: [MyApp]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class MyAppModule {}
+export class AppModule {}
 ```
+
+⚡️HttpClient 是 Angular2 HTTP 的升级版，在4.3版本引入。默认解析JSON，所以我们不需要再进行显式的解析。即我们不需要再使用以下代码：
+
+```typescript
+http.get(url).map(res => res.json()).subscribe(...)
+```
+

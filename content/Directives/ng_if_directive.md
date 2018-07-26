@@ -26,7 +26,7 @@ export class AppComponent {
 
 
 
-⚡️ NgIf语法在 4.0.0-beta.0 后已经支持else。此外，条件值现在可以存储在局部变量中，供以后重用。当与`async`管道一起使用时特别有用。
+⚡️ngIf 语法在 4.0 后已经支持`else`。此外，条件值现在可以存储在局部变量中，供以后重用。当与`async`管道一起使用时特别有用。
 
 ```html
 <div *ngIf="userObservable | async; else loading; let user">

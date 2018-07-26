@@ -49,7 +49,7 @@ export class ChildComponent {
 ...
 ```
 
-这告诉Angular，对于`<rio-child>`的开始和结束标记之间出现的任何标记，放置在`<ng-content> </ng-content>`内。
+这告诉Angular，对于`<rio-child>`的开始和结束标记之间出现的任何标记，放置在`<ng-content></ng-content>`内。
 当这样做，我们可以有其他组件，标记等投影在这里和ChildComponent不需要知道或关心提供什么。
 
 [查看示例](http://plnkr.co/edit/8TD5tXVMOOBNrvYjfhrR?p=preview)
