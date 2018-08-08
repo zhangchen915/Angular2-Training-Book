@@ -11,6 +11,7 @@ Angular 2提供 `AsyncPipe`，这是有状态的。
 AsyncPipe可以接收`Promise`或`Observable`作为输入，并自动订阅输入，最终返回发射的值。 它是有状态的，因为管道维护对输入的预订，并且其返回值取决于该预订。
 
 ```typescript
+{% raw %} 
 @Component({
   selector: 'app-root',
   template: `
@@ -18,6 +19,7 @@ AsyncPipe可以接收`Promise`或`Observable`作为输入，并自动订阅输�
     <p>Seconds: {{seconds | async}} </p>
   `
 })
+{% endraw %} 
 export class AppComponent {
   fetchPrice = new Promise((resolve, reject) => {
     setTimeout(() => resolve(10), 500);

@@ -38,7 +38,7 @@ export class FormatFileSizePipe implements PipeTransform {
 
 ```typescript
 import { Component } from '@angular/core';
-
+{% raw %}
 @Component({
   selector: 'app-root',
   template: `
@@ -47,6 +47,7 @@ import { Component } from '@angular/core';
       <p>{{ largeFileSize | formatFileSize:true }}</p>
     </div>`
 })
+{% endraw %}
 export class AppComponent {
   fileSizes = [10, 100, 1000, 10000, 100000, 10000000, 10000000000];
   largeFileSize = Math.pow(10, 15)
