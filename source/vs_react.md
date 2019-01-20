@@ -1,4 +1,4 @@
-#为什么我们选择Angular 2 而不是 React用于我们的企业级应用开发
+# 为什么我们选择Angular 2 而不是 React用于我们的企业级应用开发
 
 作者：Justin Goodhew
 [原文链接][1]

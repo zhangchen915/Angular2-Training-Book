@@ -1,10 +1,6 @@
 # Angular: Why TypeScript?
 
-![img](https://cdn-images-1.medium.com/max/800/1*grk7btEn0OJEQRKgG2Qs2A.png)
-
-*Victor Savkin is a co-founder of *[*nrwl.io*](https://goo.gl/xxviLZ)*, providing Angular consulting to enterprise teams. He was previously on the Angular core team at Google, and built the dependency injection, change detection, forms, and router modules.*
-
-------
+![](assets/ts.png)
 
 Angular 2 is written in TypeScript. In this article I will talk about why we made the decision. I’ll also share my experience of working with TypeScript: how it affects the way I write and refactor my code.
 
